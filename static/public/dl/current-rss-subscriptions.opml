@@ -7,7 +7,7 @@
 	<body>
 		<outline text="Microsoft Assessment and Planning Team Blog" description="" title="Microsoft Assessment and Planning Team Blog" type="rss" version="RSS" htmlUrl="http://blogs.technet.com/b/mapblog/" xmlUrl="http://blogs.technet.com/mapblog/atom.xml"/>
 		<outline text="You Had Me At EHLO..." description="" title="You Had Me At EHLO..." type="rss" version="RSS" htmlUrl="http://blogs.technet.com/b/exchange/" xmlUrl="http://msexchangeteam.com/rss.aspx"/>
-		<outline text="blog.scottlowe.org" description="" title="blog.scottlowe.org" type="rss" version="RSS" htmlUrl="http://blog.scottlowe.org" xmlUrl="http://feeds.scottlowe.org/slowe/content/feed"/>
+		<outline text="www.howellyang.com" description="" title="www.howellyang.com" type="rss" version="RSS" htmlUrl="http://www.howellyang.com" xmlUrl="http://feeds.scottlowe.org/slowe/content/feed"/>
 		<outline text="CSS Corp Open Source Services" description="" title="CSS Corp Open Source Services" type="rss" version="RSS" htmlUrl="http://cssoss.wordpress.com" xmlUrl="http://cssoss.wordpress.com/feed/"/>
 		<outline text="http://feeds.feedburner.com/rodjek" description="" title="http://feeds.feedburner.com/rodjek" type="rss" version="RSS" htmlUrl="http://bombasticmonkey.com" xmlUrl="http://feeds.feedburner.com/rodjek"/>
 		<outline text="http://martinfowler.com/feed.atom" description="" title="http://martinfowler.com/feed.atom" type="rss" version="RSS" htmlUrl="http://martinfowler.com" xmlUrl="http://martinfowler.com/feed.atom"/>

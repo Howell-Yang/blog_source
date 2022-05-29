@@ -1,6 +1,6 @@
 {
     "ignoreErrors": ["error-output-taxonomy"],
-    "baseurl": "https://blog.scottlowe.org/",
+    "baseurl": "https://www.howellyang.com/",
     "rssLimit": 15,
     "disablePathToLower": false,
     "languageCode": "en-us",
@@ -12,14 +12,14 @@
     },
     "theme": "lanyon-hugo",
     "params": {
-        "Title": "Scott's Weblog",
-        "Tagline": "The weblog of an IT pro focusing on cloud computing, Kubernetes, Linux, containers, and networking",
-        "Author": "Scott Lowe",
-        "GitHubUser": "scottslowe",
-        "TwitterUser": "scott_lowe",
-        "LinkedInUser": "scottslowe",
+        "Title": "Howell Yang's Weblog",
+        "Tagline": "我是杨豪，专注于深度学习模型的训练、剪枝、量化、部署以及工程效率优化。欢迎来到我的博客。",
+        "Author": "Howell Yang",
+        "GitHubUser": "howellyang",
+        "TwitterUser": "None",
+        "LinkedInUser": "None",
         "Description": "Original, technical content centered around cloud computing, Kubernetes, Linux, and networking",
-        "DateForm": "2 Jan 2006"
+        "DateForm": "29 May 2022"
     },
     "blackfriday": {
         "fractions": false

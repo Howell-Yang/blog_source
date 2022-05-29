@@ -16,7 +16,7 @@ RSS is handy, but not everyone likes RSS. Some people prefer to receive updates 
 
 1. From your web browser, open the [feed URL](http://feeds.scottlowe.org/slowe/content/feed) for the site. I've hyperlinked it for your convenience.
 
-2. An HTML interpretation of the RSS feed will be displayed. In the upper right hand corner, there will be a box titled "Subscribe Now!" In that box, there's a hyperlink labeled "Get blog.scottlowe.org delivered by email". Click that link.
+2. An HTML interpretation of the RSS feed will be displayed. In the upper right hand corner, there will be a box titled "Subscribe Now!" In that box, there's a hyperlink labeled "Get www.howellyang.com delivered by email". Click that link.
 
 3. The next screen will prompt you to enter your e-mail address and enter a verification code that is displayed on the screen. Provide that information and then click the button labeled "Complete Subscription Request."
 

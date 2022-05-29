@@ -4,8 +4,8 @@ https://keybase.io/scottslowe
 
 I hereby claim:
 
-  * I am an admin of https://blog.scottlowe.org
-  * I am scottslowe (https://keybase.io/scottslowe) on keybase.
+  * I am an admin of https://www.howellyang.com
+  * I am howellyang (https://keybase.io/scottslowe) on keybase.
   * I have a public key with fingerprint CBDD 65F2 AE16 39E4 90F8  AF9D 7DC8 E023 D0E9 42DC
 
 To do so, I am signing this object:
@@ -22,7 +22,7 @@ To do so, I am signing this object:
             "username": "scottslowe"
         },
         "service": {
-            "hostname": "blog.scottlowe.org",
+            "hostname": "www.howellyang.com",
             "protocol": "https:"
         },
         "type": "web_service_binding",

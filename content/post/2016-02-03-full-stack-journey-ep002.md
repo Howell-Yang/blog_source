@@ -73,7 +73,7 @@ _The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change_ v
 [link-9]: http://saltstack.com/
 [link-10]: https://puppetlabs.com/
 [link-11]: https://www.chef.io/chef/
-[link-12]: http://blog.scottlowe.org
+[link-12]: http://www.howellyang.com
 [link-13]: https://www.codecademy.com/
 [link-14]: http://www.amazon.com/The-Habits-Highly-Effective-People/dp/0743269519
 [link-15]: http://jedelman.com

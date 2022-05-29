@@ -16,7 +16,7 @@ In case you're wondering what I read in my _ever-so-plentiful_ free time (OK, st
 
 * [Apache DevCenter](http://www.onlamp.com/apache/) ([RSS](http://www.oreillynet.com/pub/feed/9?format=rss2))
 
-* [blog.scottlowe.org](http://blog.scottlowe.org) ([RSS](http://blog.scottlowe.org/feed/))
+* [www.howellyang.com](http://www.howellyang.com) ([RSS](http://www.howellyang.com/feed/))
 
 * [BlogSavvy](http://blogsavvy.net) ([RSS](http://blogsavvy.net/feed))
 

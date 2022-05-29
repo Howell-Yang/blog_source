@@ -21,7 +21,7 @@ To help simplify this process, I wrote a regex that I used in conjunction with T
 
 Here's the regex that matches against URLs to posts on my own site:
 
-	(\(?)http://blog.scottlowe.org/(2[0-9]{3})/([0-9]{2})/([0-9]{2})/(.*)/(\)?)
+	(\(?)http://www.howellyang.com/(2[0-9]{3})/([0-9]{2})/([0-9]{2})/(.*)/(\)?)
 
 Using backreferences, the matching text is replaced with this:
 
@@ -29,7 +29,7 @@ Using backreferences, the matching text is replaced with this:
 
 This takes a URL like this (this is the URL for the very first post on my site):
 
-	http://blog.scottlowe.org/2005/05/11/welcome/
+	http://www.howellyang.com/2005/05/11/welcome/
 
 And turns it into this:
 
