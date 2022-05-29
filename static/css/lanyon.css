@@ -146,12 +146,12 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: -14rem;
   width: 14rem;
-  visibility: hidden;
+  /* visibility: hidden; */
   overflow-y: auto;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 15px */
-  color: rgba(255,255,255,.6);
-  background-color: #202020;
+  color: rgba(23, 6, 182, 0.6);
+  background-color: #010227;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
 }

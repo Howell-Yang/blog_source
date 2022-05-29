@@ -4,7 +4,7 @@
     "rssLimit": 15,
     "disablePathToLower": false,
     "languageCode": "en-us",
-    "title": "Scott's Weblog",
+    "title": "杨豪-博客",
     "publishdir": "output",
     "permalinks": {
         "post": ":year/:month/:day/:title/",
@@ -18,7 +18,7 @@
         "GitHubUser": "howellyang",
         "TwitterUser": "None",
         "LinkedInUser": "None",
-        "Description": "Original, technical content centered around cloud computing, Kubernetes, Linux, and networking",
+        "Description": "利用计算机视觉算法，进行自动驾驶、三维见图、视觉动作捕捉等研究。",
         "DateForm": "29 May 2022"
     },
     "blackfriday": {

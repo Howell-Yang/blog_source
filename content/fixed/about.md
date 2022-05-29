@@ -1,15 +1,15 @@
 ---
-author: slowe
-title: About
+author: howellyang
+title: 关于我
 url: /about/
 sidebar: true
 weight: "1"
 type: fixed
 ---
 
-<img src="/public/img/slowe-inside-small-02-150x150.png" alt="" title="Scott Lowe" width="150" height="150" />Thanks for visiting my site! My name is Scott Lowe, and this is my weblog about various technical subjects and the occasional personal topic.
+<img src="/public/img/slowe-inside-small-02-150x150.png" alt="" title="Howell Yang" width="150" height="150" />欢迎来到我的博客! 我叫杨豪, 我将在这里发布关于技术的一些思考，一些好用的小工具，以及一些教程。
 
-## Personal Information
+## 个人信息
 
 I live with my wife, Crystal, and our kids in the Denver, CO area. When I'm not working or spending time with my family, I'm enjoying the outdoor life or working in our church.
 
@@ -43,13 +43,5 @@ Any views or opinions expressed here are strictly my own and not those of my emp
 
 ## Contact Me
 
-If you'd like to send me an e-mail, you can reach me at scott dot lowe at scottlowe dot org.
+如果你有感兴趣的话题想和我讨论，欢迎发邮件给我: howellyang@buaa.edu.cn
 
-[1]: http://searchvmware.techtarget.com
-[2]: http://searchservervirtualization.techtarget.com
-[3]: http://virtualizationreview.com/Home.aspx
-[4]: http://www.linkedin.com/in/scottslowe
-[5]: http://docs.openstack.org/arch-design/content/
-[6]: https://konghq.com
-[7]: https://github.com/scottslowe
-[8]: https://www.vmware.com/
