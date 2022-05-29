@@ -5,12 +5,13 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p><img src="/public/img/personal_log.png" alt="Orbits" width="192" height="128" /></p>
+    <p><img src="/public/img/personal_log.png" alt="Orbits" width="224" height="128" /></p>
     <p>{{ .Site.Params.Description }}</p>
   </div>
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item {{ if eq .Permalink "/" }} active {{ end }}" href="/">主页</a>
+    <!-- <a class="sidebar-nav-item {{ if eq .Permalink "/" }} active {{ end }}" href="/">主页</a> -->
+    <a class="sidebar-nav-item" href="/">主页</a>
     <a class="sidebar-nav-item" href="/about/">我的简介</a>
     <a class="sidebar-nav-item" href="/archives/">按时间查看</a>
     <a class="sidebar-nav-item" href="/categories/">按类别查看</a>

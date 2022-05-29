@@ -5,16 +5,16 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>
+  <!-- <title>
     {{- if eq .Permalink "/" -}}
       {{- .Site.Params.Title }} - {{ .Site.Params.Tagline -}}
     {{ else }}
       {{- .Title }} - {{ .Site.Params.Title }} - {{ .Site.Params.Tagline -}}
     {{- end -}}
-  </title>
+  </title> -->
 
   <!--Metadata-->
-  {{ with .Site.Params.Author }}<meta name="author" content="{{ . }}">{{ end }}
+  <!-- {{ with .Site.Params.Author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ with .Site.Title }}<meta property="og:site_name" content="{{ . }}">{{ end }}
   {{ if eq .Permalink "/" }}
   <meta property="og:description" content="{{ .Site.Params.Title }} - {{ .Site.Params.Tagline }}">
@@ -24,7 +24,7 @@
   <meta property="og:title" content="{{ .Title }} - {{ .Site.Params.Title }} - {{ .Site.Params.Tagline }}">
   {{ end }}
   <meta property="og:type" content="article">
-  <meta name="keywords" content="Cloud, Containers, Kubernetes, K8s, Docker, CNI, CRI-O, OCI, Linux, CLI, Networking, AWS, Security, DevOps">
+  <meta name="keywords" content="Cloud, Containers, Kubernetes, K8s, Docker, CNI, CRI-O, OCI, Linux, CLI, Networking, AWS, Security, DevOps"> -->
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/poole.css">
