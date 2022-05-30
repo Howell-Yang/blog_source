@@ -7,41 +7,70 @@ weight: "1"
 type: fixed
 ---
 
-<img src="/public/img/slowe-inside-small-02-150x150.png" alt="" title="Howell Yang" width="150" height="150" />欢迎来到我的博客! 我叫杨豪, 我将在这里发布关于技术的一些思考，一些好用的小工具，以及一些教程。
 
-## 个人信息
+<img src="/public/img/personal_log.png" alt="" title="Howell Yang" width="256" height="128" />欢迎来到我的博客! 我叫杨豪, 我将在这里发布关于技术的一些思考，一些好用的小工具，以及一些教程。<br>
 
-I live with my wife, Crystal, and our kids in the Denver, CO area. When I'm not working or spending time with my family, I'm enjoying the outdoor life or working in our church.
+<br>
+<br>
 
-## Professional Information
+# 个人信息
+ - **姓名**   杨豪
+ - **出生年月** 1992-12 
+ - **工作年限** ：3年
+ - **博客**  http://www.howellyang.com
+ - **Github** https://github.com/Howell-Yang
+ - **手机** 13260129163
+ - **Email** howellyang@buaa.edu.cn
 
-I've been in the Information Technology field for more than 25 years, starting out with desktop support. Along the way, I've worked as an instructor, a technical trainer and Microsoft Certified Trainer (MCT), a systems administrator, an IT manager, a systems engineer, a consultant, as Chief Technology Officer (CTO) for a small start-up, as the practice lead for a national VAR's VMware practice, as a forward-looking technologist for a large enterprise storage company, and as a technologist for [VMware][8] focusing on network virtualization and modern applications platforms (the latter role as a result of VMware's acquisition of Heptio).
+<br>
 
-Currently, I work for [Kong, Inc.][6] as a Principal Field Engineer. In my role, I'm focused on helping customers solve service connectivity challenges through Kong's portfolio of products, including service mesh and API gateway.
+# 教育经历
+- 2016年9月 ~ 2019年1月    北京航空航天大学 模式识别 **硕士**
+- 2012年9月 ~ 2016年7月    北京航空航天大学 自动化  **本科**
 
-In addition, I am a former contributor to [SearchVMware.com][1], a VMware-focused website with technical articles, how-to's, tips, and news. I also had some articles published on [SearchServerVirtualization.com][2] and I am a former columnist for [Virtualization Review][3] magazine.
+<br>
 
-I currently have seven traditionally published books to my credit:
+# 工作经历
+## 腾讯(2021年7月 ~ 至今）
+### GPU算力优化 
+我负责优化云端模型的量化、部署和测试。针对GPU资源消耗过多的问题，搭建了基于TensorRT的模型量化和部署的流程。遇到的主要问题是量化后的模型存在精度损失，最后调研了一系列的模型量化算法，并开发了模型量化和转换工具，来实现自动化的模型转化和测试。最终量化模型的输出的cosine相似度高于0.999, 同时模型infer的耗时降低20%，GPU的占用率降低10%，GPU显存降低10%。实现了降本增效，节省三百万左右的算力成本。
 
-* *Mastering VMware vSphere 4*, published around VMworld 2009
-* *VMware vSphere 4 Administration Instant Reference* (with Jase McCarty and Matthew Johnson), published in late 2009
-* *VMware vSphere Design* (with Forbes Guthrie and Maish Saidel-Keesing), published in March 2011
-* *Mastering VMware vSphere 5*, published in October 2011
-* *VMware vSphere Design, 2nd Edition* (with Forbes Guthrie), published in March 2013 with updated content for vSphere 5.1 and vCloud Director
-* *Mastering VMware vSphere 5.5* (with Nick Marshall, who took over other books in this series), published in November 2013
-* *Network Programmability and Automation* (with Jason Edelman and Matt Oswalt), published in March 2018
+### AR导航项目 
+将模型部署到手机、车机端对于SDK的性能要求较高，需要在完成复杂功能的基础上，尽可能的降低耗时和CPU占用率。针对这个需求，设计了多流程并行的框架，并加入了自动profile功能。共完成功能12项，实现实时的AR导航功能，并将CPU占用率控制在70%以下。在四个月的时间里完成了个AR导航中的感知功能，并正式在江铃CX743车辆上线。后续该车正式量产，并实现了数据的回传，能有效辅助腾讯地图的数据更新。
+  
+## 依图科技 （ 2019年4月 ~ 2021年7月 ）
 
-Some of these books are available from Amazon.com and other major booksellers, although many of the older books may no longer be available.
+### 脸行贵阳-地铁刷脸项目
+我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
 
-In the summer of 2014, I collaborated with a number of others to produce a book titled *OpenStack Architecture Design Guide*. This book is available online [via the OpenStack web site][5], but it is no longer being updated for more recent releases of OpenStack.
 
-If you'd like more information, my LinkedIn profile is available [here][4], and my GitHub profile is available [here][7].
+### 机器翻译项目 
+我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
 
-## Disclaimer
+## 开源项目
+（对于程序员来讲，没有什么比Show me the code能有说服力了）
 
-Any views or opinions expressed here are strictly my own and not those of my employer (or any past employer). While I am a blogger who works for Kong, blogging is not my job for that vendor; it's my personal passion. As this is a personal blog, not a corporate blog, I am solely responsible for all content published here. Content published here is not read, reviewed, or approved in advance by my employer and does not necessarily represent or reflect the views or opinions of my employer or any of its divisions, subsidiaries, or business partners.
+  - [STU](http://github.com/yourname/projectname)：项目的简要说明，Star和Fork数多的可以注明
 
-## Contact Me
+## 技术文章
+（挑选你写作或翻译的技术文章，好的文章可以从侧面证实你的表达和沟通能力，也帮助招聘方更了解你）
 
-如果你有感兴趣的话题想和我讨论，欢迎发邮件给我: howellyang@buaa.edu.cn
+- [一个产品经理眼中的云计算：前生今世和未来](http://get.jobdeer.com/706.get)
+- [来自HeroKu的HTTP API 设计指南(翻译文章)](http://get.jobdeer.com/343.get) （ 好的翻译文章可以侧证你对英文技术文档的阅读能力）
 
+## 演讲和讲义
+（放置你代表公司在一些技术会议上做过的演讲，以及你在公司分享时制作的讲义）
+
+  - 2014架构师大会演讲：[如何通过Docker优化内部开发](http://ftqq.com)
+  - 9月公司内部分享：[云计算的前生今世](http://ftqq.com)
+
+
+# 技能清单
+- 编程语言：C++/Python
+- 计算机视觉：检测、分割、分类
+- 自然语言处理：机器翻译
+- 魔性训练框架：tensorflow/pytorch/caffe
+- 模型部署框架：onnx/TNN/MNN/PaddleLite/TensorRT
+- 前端框架：HTML/CSS/JavaScript
+- 后端框架: Flask/MongoDB
+- 基础开发：Git/Bash/Gcc/Cmake

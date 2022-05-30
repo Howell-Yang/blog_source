@@ -73,9 +73,12 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .container {
-  max-width: 28rem;
+  /* max-width: 56rem; */
+  /* max-width: calc(80% - 28rem); */
+  margin-left: calc(2% + 14rem);
+  margin-right: calc(2% + 28rem);
 }
-@media (min-width: 38em) {
+/* @media (min-width: 38em) {
   .container {
     max-width: 32rem;
   }
@@ -84,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     max-width: 38rem;
   }
-}
+} */
 
 
 /*
@@ -299,6 +302,9 @@ a.sidebar-nav-item:focus {
           transform: translateX(14rem);
 }
 
+#sidebar-checkbox:checked ~ .wrap > .container {
+  margin-right: calc(2% + 28rem);
+}
 
 /*
  * Posts and pages
@@ -309,7 +315,7 @@ a.sidebar-nav-item:focus {
 
 .page,
 .post {
-  margin-bottom: 4em;
+  margin-bottom: 4rem;
 }
 
 /* Blog post or page title */
@@ -320,7 +326,7 @@ a.sidebar-nav-item:focus {
 }
 .page-title,
 .post-title {
-  margin-top: 0;
+  margin-top: 4rem;
 }
 
 /* Meta data line below post title */
@@ -464,6 +470,9 @@ a.pagination-item:hover {
           transform: translateX(-14rem);
 }
 
+.layout-reverse #sidebar-checkbox:checked ~ .wrap > .container {
+  margin-right: calc(2% + 14rem);
+}
 
 /*
  * Themes

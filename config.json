@@ -19,7 +19,7 @@
         "TwitterUser": "None",
         "LinkedInUser": "None",
         "Description": "利用计算机视觉算法，进行自动驾驶、三维见图、视觉动作捕捉等研究。",
-        "DateForm": "29 May 2022"
+        "DateForm": "Mon, Jan 02, 2006"
     },
     "blackfriday": {
         "fractions": false
