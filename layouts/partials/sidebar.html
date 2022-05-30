@@ -1,6 +1,6 @@
 <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked="checked">
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
@@ -10,8 +10,7 @@
   </div>
 
   <nav class="sidebar-nav">
-    <!-- <a class="sidebar-nav-item {{ if eq .Permalink "/" }} active {{ end }}" href="/">主页</a> -->
-    <a class="sidebar-nav-item" href="/">主页</a>
+    <a class="sidebar-nav-item {{ if eq .Permalink "/" }} active {{ end }}" href="/">主页</a>
     <a class="sidebar-nav-item" href="/about/">我的简介</a>
     <a class="sidebar-nav-item" href="/archives/">按时间查看</a>
     <a class="sidebar-nav-item" href="/categories/">按类别查看</a>
@@ -21,9 +20,6 @@
   <div class="sidebar-item">
     <p>
       <a href="https://github.com/{{ .Site.Params.GitHubUser }}"><i class="fa fa-github fa-3x"></i></a>
-      <a href="https://twitter.com/{{ .Site.Params.TwitterUser }}"><i class="fa fa-twitter fa-3x"></i></a>
-      <a href="https://www.linkedin.com/in/{{ .Site.Params.LinkedInUser }}"><i class="fa fa-linkedin-square fa-3x"></i></a>
-      <a href="http://feeds.scottlowe.org/slowe/content/feed/"><i class="fa fa-rss fa-3x"></i></a>
     </p>
   </div>
 

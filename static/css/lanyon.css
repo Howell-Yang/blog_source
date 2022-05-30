@@ -272,9 +272,8 @@ a.sidebar-nav-item:focus {
  * Read more about it at http://meyerweb.com/eric/thoughts/2011/09/12/.
  */
 
-/* .wrap,
-.sidebar, */
 .wrap,
+.sidebar,
 .sidebar-toggle {
   -webkit-backface-visibility: hidden;
       -ms-backface-visibility: hidden;
@@ -286,10 +285,12 @@ a.sidebar-nav-item:focus {
           transition: transform .3s ease-in-out;
 }
 
+/* 点击显示按钮，移动到上层，并显示 */
 #sidebar-checkbox:checked + .sidebar {
   z-index: 10;
   visibility: visible;
 }
+/* 同时将这些元素右移14rem */
 #sidebar-checkbox:checked ~ .sidebar,
 #sidebar-checkbox:checked ~ .wrap,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
@@ -543,7 +544,7 @@ a.pagination-item:hover {
   background-image:     -ms-linear-gradient(to bottom, #6a9fb5, #6a9fb5 20%, #fff 20%, #fff 40%, #6a9fb5 40%, #6a9fb5 60%, #fff 60%, #fff 80%, #6a9fb5 80%, #6a9fb5 100%);
   background-image:         linear-gradient(to bottom, #6a9fb5, #6a9fb5 20%, #fff 20%, #fff 40%, #6a9fb5 40%, #6a9fb5 60%, #fff 60%, #fff 80%, #6a9fb5 80%, #6a9fb5 100%);
 }
-.sidebar-toggle:active:before,
+.:active:active:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
   background-image: -webkit-linear-gradient(to bottom, #fff, #fff 20%, #6a9fb5 20%, #6a9fb5 40%, #fff 40%, #fff 60%, #6a9fb5 60%, #6a9fb5 80%, #fff 80%, #fff 100%);
   background-image:    -moz-linear-gradient(to bottom, #fff, #fff 20%, #6a9fb5 20%, #6a9fb5 40%, #fff 40%, #fff 60%, #6a9fb5 60%, #6a9fb5 80%, #fff 80%, #fff 100%);
