@@ -7,7 +7,7 @@
     <i class="fa fa-pencil" aria-hidden="true"></i>&#160;{{ .WordCount }} words (estimated {{ .ReadingTime }} minutes to read)</span>
   {{ .Content }}
 
-  <h3>Metadata and Navigation</h3>
+  <!-- <h3>Metadata and Navigation</h3> -->
   <span class="post-meta">
   {{ range .Params.tags }}<i class="fa fa-tag" aria-hidden="true"></i>&#160;<a href="/tags/{{ . | lower }}">{{ . }}</a> {{ end }}
 

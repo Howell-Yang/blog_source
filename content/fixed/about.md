@@ -49,20 +49,25 @@ type: fixed
 
 ## 开源项目
 （对于程序员来讲，没有什么比Show me the code能有说服力了）
-
-  - [STU](http://github.com/yourname/projectname)：项目的简要说明，Star和Fork数多的可以注明
+  - [onnx2trt](https://github.com/Howell-Yang/onnx2trt)：
+    - 用于进行onnx模型到tensorRT模型的int8量化
+    - 集成了onnx_quantization和tensorRT自带的模型量化算法
+    - 开放模型量化接口，用于实现自定义的模型量化算法
+    - 实现了基于cosine优化的模型量化算法
+  - [blog_source](https://github.com/Howell-Yang/blog_source)
+    - 基于hugo开发的个人博客模板网站
+    - 加入了一系列的格式优化和说明文档
+    - 用于进行个人博客网站的开发
 
 ## 技术文章
-（挑选你写作或翻译的技术文章，好的文章可以从侧面证实你的表达和沟通能力，也帮助招聘方更了解你）
 
-- [一个产品经理眼中的云计算：前生今世和未来](http://get.jobdeer.com/706.get)
-- [来自HeroKu的HTTP API 设计指南(翻译文章)](http://get.jobdeer.com/343.get) （ 好的翻译文章可以侧证你对英文技术文档的阅读能力）
+- [tensorRT模型量化教程] TODO
+- [个人博客网站教程] TODO
+- [paper reading] TODO
 
 ## 演讲和讲义
-（放置你代表公司在一些技术会议上做过的演讲，以及你在公司分享时制作的讲义）
-
-  - 2014架构师大会演讲：[如何通过Docker优化内部开发](http://ftqq.com)
-  - 9月公司内部分享：[云计算的前生今世](http://ftqq.com)
+- 2014架构师大会演讲：[如何通过Docker优化内部开发](http://ftqq.com)
+- 7月T9晋升PPT：[云计算的前生今世](http://ftqq.com)
 
 
 # 技能清单
