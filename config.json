@@ -62,5 +62,12 @@
                 "gzip": "true"
             }
         ]
+    },
+    "markup": {
+        "goldmark": {
+        "renderer":{
+            "unsafe": true
+            }
+        }
     }
 }
