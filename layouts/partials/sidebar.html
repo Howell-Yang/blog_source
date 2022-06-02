@@ -11,19 +11,21 @@
 
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item {{ if eq .Permalink "/" }} active {{ end }}" href="/">主页</a>
-    <a class="sidebar-nav-item" href="/about/">我的简介</a>
     <a class="sidebar-nav-item" href="/archives/">按时间查看</a>
     <a class="sidebar-nav-item" href="/categories/">按类别查看</a>
     <a class="sidebar-nav-item" href="/tags/">按标签查看</a>
+    <a class="sidebar-nav-item" href="/about/">关于我</a>
   </nav>
 
-  <div class="sidebar-item"  style="margin-bottom: 0.5rem;">
-    <p>
-      <a href="https://github.com/{{ .Site.Params.GitHubUser }}"><i class="fa fa-github fa-3x"></i></a>
-    </p>
-  </div>
+  <div style="vertical-align:bottom;align-items: flex-end;">
+    <div class="sidebar-item">
+      <p>
+        <a href="https://github.com/{{ .Site.Params.GitHubUser }}"><i class="fa fa-github fa-3x"></i></a>
+      </p>
+    </div>
 
-  <div class="sidebar-item" style="margin-bottom: 0.5rem;">
-    <p>&copy; 2005-{{ .Site.LastChange.Year }}. All rights reserved.</p>
-  </div>
+    <div class="sidebar-item">
+      <p>&copy; 2005-{{ .Site.LastChange.Year }}. All rights reserved.</p>
+    </div>
+ </div>
 </div>
