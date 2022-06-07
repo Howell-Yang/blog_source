@@ -15,7 +15,7 @@ type: fixed
 
 - **姓名** 杨豪
 - **出生年月** 1992-12
-- **工作年限** ：3 年
+- **工作年限** 3 年
 - **博客** http://www.howellyang.com
 - **Github** https://github.com/Howell-Yang
 - **手机** 13260129163
@@ -25,8 +25,8 @@ type: fixed
 
 # 教育经历
 
-- 2016 年 9 月 ~ 2019 年 1 月 北京航空航天大学 模式识别 **硕士**
-- 2012 年 9 月 ~ 2016 年 7 月 北京航空航天大学 自动化 **本科**
+- 2016 年 9 月 ~ 2019 年 1 月 北京航空航天大学 模式识别 硕士
+- 2012 年 9 月 ~ 2016 年 7 月 北京航空航天大学 自动化 本科
 
 <br>
 
@@ -43,20 +43,26 @@ type: fixed
 负责开发一个内部使用的评测网站，方便所有人进行模型&数据管理、算法评测、结果管理、数据共享。并且预留接口，以实现 badcase 分析、回流数据管理、建图结果展示等功能。
 
 <div style="column-count:3;text-align: center; justify-content: center;">
-<p style="text-align: center;">
-<img src="/public/img/nbt_eval_design.png"  alt="" height="180" width="360">
-<p style="text-align:center;">评测平台架构</p>
+<p style="text-align: center; justify-content: center;">
+<img src="/public/img/nbt_eval_design.png"  alt="" height="180" width="360" class="pic"/>
+<p style="text-align:center; justify-content: center;">评测平台架构</p>
 </p>
 
-<p style="text-align: center;">
-<img src="/public/img/nbt_eval_design0.png"  alt="" height="180" width="360">
-<p   style="text-align:center;">评测平台接口设计</p>
+<p style="text-align: center; justify-content: center;">
+<img src="/public/img/nbt_eval_design0.png"  alt="" height="180" width="360" class="pic"/>
+<p   style="text-align:center; justify-content: center;">评测平台接口设计</p>
 </p>
 
-<p style="text-align: center;">
-<img src="/public/img/nbt_eval_v1.png"  alt="" height="180" width="360">
-<p   style="text-align:center;">评测平台页面效果图</p>
+<p style="text-align: center; justify-content: center;">
+<img src="/public/img/nbt_eval_v1.png"  alt="" height="180" width="360" class="pic"/>
+<p   style="text-align:center; justify-content: center;">评测平台页面效果图</p>
 </p>
+</div>
+
+<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">
+    <div id="innerdiv" style="position:absolute;">
+        <img id="bigimg" style="border:5px solid #fff;" src="" />
+  </div>
 </div>
 
 ### AR 导航项目
@@ -65,19 +71,19 @@ type: fixed
 
 <div style="column-count:3;text-align: center; justify-content: center;">
 
-<p style="text-align: center;">
+<p style="text-align: center; justify-content: center;">
 <video src="/public/img/nano_det.mp4" muted  alt=""  type="video/mp4" height="180" width="360" controls="controls" autoplay="autoplay"  loop="loop">
-<p  style="text-align:center;">道路感知结果</p>
+<p  style="text-align:center; justify-content: center;">道路感知结果</p>
 </p>
 
-<p style="text-align: center;">
+<p style="text-align: center; justify-content: center;">
 <video src="/public/img/parkingSlotDetection.mp4"  muted alt=""  height="180" width="360" controls="controls" autoplay="autoplay"  loop="loop">
-<p  style="text-align:center;">停车位检测结果</p>
+<p  style="text-align:center; justify-content: center;">停车位检测结果</p>
 </p>
 
-<p style="text-align: center;">
+<p style="text-align: center; justify-content: center;">
 <video src="/public/img/AR_Navi_Map.mp4"  muted alt=""  height="180" width="360" controls="controls" autoplay="autoplay"  loop="loop">
-<p  style="text-align:center;">AR导航效果</p>
+<p  style="text-align:center; justify-content: center;">AR导航效果</p>
 </p>
 
 </div>
@@ -114,16 +120,67 @@ type: fixed
 
 # 演讲和讲义
 
-- 2014 架构师大会演讲：[如何通过 Docker 优化内部开发](http://ftqq.com)
-- 7 月 T9 晋升 PPT：[云计算的前生今世](http://ftqq.com)
+- 2014 架构师大会演讲 [如何通过 Docker 优化内部开发](http://ftqq.com)
+- 7 月 T9 晋升 PPT [vps_sdk 的开发](http://ftqq.com)
 
 # 技能清单
 
-- 编程语言：C++/Python
-- 计算机视觉：检测、分割、分类
-- 自然语言处理：机器翻译
-- 魔性训练框架：tensorflow/pytorch/caffe
-- 模型部署框架：onnx/TNN/MNN/PaddleLite/TensorRT
-- 前端框架：HTML/CSS/JavaScript
-- 后端框架: Flask/MongoDB
-- 基础开发：Git/Bash/Gcc/Cmake
+- 编程语言 C++/Python
+- 计算机视觉 检测、分割、分类
+- 自然语言处理 机器翻译
+- 魔性训练框架 tensorflow/pytorch/caffe
+- 模型部署框架 onnx/TNN/MNN/PaddleLite/TensorRT
+- 前端框架 HTML/CSS/JavaScript
+- 后端框架 Flask/MongoDB
+- 基础开发 Git/Bash/Gcc/Cmake
+
+<script>
+    $(function() {
+        $('img').click(function() {
+            var _this = $(this);// 将当前的pimg元素作为_this传入函数
+            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+        });
+    });
+ 
+    function imgShow(outerdiv, innerdiv, bigimg, _this) {
+        var src = _this.attr("src");// 获取当前点击的pimg元素中的src属性
+        $(bigimg).attr("src", src);// 设置#bigimg元素的src属性
+ 
+        /* 获取当前点击图片的真实大小，并显示弹出层及大图 */
+        $("<img/>").attr("src", src).load(function() {
+            var windowW = $(window).width();// 获取当前窗口宽度
+            var windowH = $(window).height();// 获取当前窗口高度
+            var realWidth = 1000;// 获取图片真实宽度
+            var realHeight = 1000;// 获取图片真实高度
+            var imgWidth, imgHeight;
+            var scale = 1;// 缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放
+ 
+            if (realHeight > windowH * scale) {// 判断图片高度
+                imgHeight = windowH * scale;// 如大于窗口高度，图片高度进行缩放
+                imgWidth = imgHeight / realHeight * realWidth;// 等比例缩放宽度
+                if (imgWidth > windowW * scale) {// 如宽度扔大于窗口宽度
+                    imgWidth = windowW * scale;// 再对宽度进行缩放
+                }
+            } else if (realWidth > windowW * scale) {// 如图片高度合适，判断图片宽度
+                imgWidth = windowW * scale;// 如大于窗口宽度，图片宽度进行缩放
+                imgHeight = imgWidth / realWidth * realHeight;// 等比例缩放高度
+            } else {// 如果图片真实高度和宽度都符合要求，高宽不变
+                imgWidth = realWidth;
+                imgHeight = realHeight;
+            }
+            $(bigimg).css("width", imgWidth);// 以最终的宽度对图片缩放
+ 
+            var w = (windowW - imgWidth) / 2;// 计算图片与窗口左边距
+            var h = (windowH - imgHeight) / 2;// 计算图片与窗口上边距
+            $(innerdiv).css({
+                "top" : h,
+                "left" : w
+            });// 设置#innerdiv的top和left属性
+            $(outerdiv).fadeIn("fast");// 淡入显示#outerdiv及.pimg
+        });
+ 
+        $(outerdiv).click(function() {// 再次点击淡出消失弹出层
+            $(this).fadeOut("fast");
+        });
+    }
+</script>
