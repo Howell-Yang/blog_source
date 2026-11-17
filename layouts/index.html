@@ -1,39 +1,150 @@
 {{ partial "default_head.html" . }}
+{{- $cv := .Site.Data.cv -}}
+{{- $p := $cv.profile -}}
 
-<!--Render full content for 1 most recent posts-->
-<div class="posts">
-  {{ range first 1 (where .Site.RegularPages "Type" "in" "post") }}
-    <div class="post">
-      <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-      <span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }}</span>
-      {{ .Content }}
-    </div>
-  {{ end }}
-
-<!--Render summaries for next 15 posts-->
-  <h1>Recent Posts</h1>
-
-  {{ range first 5 (after 1 (where .Site.RegularPages "Type" "in" "post")) }}
-    <div class="post">
-      <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      <span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }}</span>
-      {{ .Summary }}<em><a href="{{ .Permalink }}">Read more...</a></em>
-    </div>
-  {{ end }}
-
-<!--Render list of next 30 posts-->
-  <h1>Older Posts</h1>
-
-  <div class="post">
-    <ul id="list">
-    {{ range first 5 (after 6 (where .Site.RegularPages "Type" "in" "post")) }}
-      {{ .Render "li2"}}
-    {{ end }}
+<!-- Profile -->
+<section class="profile" aria-label="Profile">
+  <img class="avatar" src="{{ $p.avatar | relURL }}" alt="Portrait of {{ $p.name }}" width="168" height="168">
+  <div class="profile-text">
+    <h1 class="name">{{ $p.name }} <span class="name-zh" lang="zh">{{ $p.name_zh }}</span></h1>
+    <p class="role">{{ $p.title }}</p>
+    <p class="affiliation">{{ $p.affiliation }}</p>
+    <ul class="profile-links">
+      <li><a href="mailto:{{ $p.email }}"><i class="fa fa-envelope" aria-hidden="true"></i> {{ $p.email }}</a></li>
+      <li><a href="https://github.com/{{ $p.github }}"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></li>
+      {{- with $p.cv_pdf }}
+      <li><a href="{{ . | relURL }}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> CV (PDF)</a></li>
+      {{- end }}
+      <li><a href="{{ "about/" | relURL }}" lang="zh"><i class="fa fa-language" aria-hidden="true"></i> 中文简介</a></li>
     </ul>
   </div>
+</section>
 
-<!--Closing note about how to find other articles-->
-  <div class="post">Find more posts by browsing the <a href="/categories/">post categories</a>, <a href="/tags/">content tags</a>, or <a href="/archives/">site archives</a> pages. Thanks for visiting!</div>
-</div>
+<section class="bio" aria-label="About">
+  {{- range $p.bio }}
+  <p>{{ . | markdownify }}</p>
+  {{- end }}
+  <ul class="tags" aria-label="Interests">
+    {{- range $p.interests }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
+</section>
+
+<!-- News -->
+{{ with $cv.news }}
+<section id="news" class="cv-section">
+  <h2>News</h2>
+  <ul class="news">
+    {{- range . }}
+    <li><span class="news-date">{{ .date }}</span><span class="news-text">{{ .text | markdownify }}</span></li>
+    {{- end }}
+  </ul>
+</section>
+{{ end }}
+
+<!-- Experience -->
+<section id="experience" class="cv-section">
+  <h2>Experience</h2>
+  {{- range $cv.experience }}
+  <article class="job">
+    <header class="job-head">
+      <h3><a href="{{ .url }}">{{ .org }}</a> <span class="org-zh" lang="zh">{{ .org_zh }}</span></h3>
+      <span class="dates">{{ .dates }}</span>
+    </header>
+    <p class="job-role">{{ .role }}</p>
+    {{- with .note }}<p class="job-note">{{ . }}</p>{{ end }}
+    {{- range .groups }}
+    {{- with .title }}<h4>{{ . }}</h4>{{ end }}
+    <ul class="bullets">
+      {{- range .items }}
+      <li>{{ . | markdownify }}</li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </article>
+  {{- end }}
+</section>
+
+<!-- Selected projects -->
+<section id="projects" class="cv-section">
+  <h2>Selected Projects</h2>
+  <p class="section-intro">Each project has a detail page with the problem, the method step by step, and the results. <a href="{{ "projects/" | relURL }}">All projects &rarr;</a></p>
+  {{- range $cv.projects }}
+  <article class="project">
+    <div class="project-visual">
+      {{- if .video }}
+      <video src="{{ .video | relURL }}" muted autoplay loop playsinline preload="metadata" aria-label="{{ .title }} demo"></video>
+      {{- else if .image }}
+      <img src="{{ .image | relURL }}" alt="{{ .title }}" loading="lazy">
+      {{- else }}
+      <div class="metric"><span class="metric-value">{{ .metric }}</span><span class="metric-label">{{ .metric_label }}</span></div>
+      {{- end }}
+    </div>
+    <div class="project-body">
+      {{- $href := .url }}{{ with .page }}{{ $href = . | relURL }}{{ end }}
+      <h3>{{ if $href }}<a href="{{ $href }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+      <p class="project-where">{{ .where }}</p>
+      <p>{{ .text | markdownify }}</p>
+      {{- if or .page .url }}
+      <p class="project-actions">
+        {{- with .page }}<a href="{{ . | relURL }}">Method &amp; details &rarr;</a>{{ end }}
+        {{- with .url }}<a href="{{ . }}"><i class="fa fa-github" aria-hidden="true"></i> Code</a>{{ end }}
+      </p>
+      {{- end }}
+    </div>
+  </article>
+  {{- end }}
+</section>
+
+<!-- Patents and talks -->
+{{ with $cv.patents_talks }}
+<section id="talks" class="cv-section">
+  <h2>Patent, Talks &amp; Engagement</h2>
+  <ul class="bullets">
+    {{- range . }}
+    <li>{{ . | markdownify }}</li>
+    {{- end }}
+  </ul>
+</section>
+{{ end }}
+
+<!-- Skills -->
+<section id="skills" class="cv-section">
+  <h2>Skills</h2>
+  <dl class="skills">
+    {{- range $cv.skills }}
+    <dt>{{ .area }}</dt>
+    <dd>{{ .items }}</dd>
+    {{- end }}
+  </dl>
+</section>
+
+<!-- Education -->
+<section id="education" class="cv-section">
+  <h2>Education</h2>
+  {{- range $cv.education }}
+  <div class="edu">
+    <div><strong>{{ .school }}</strong> <span class="org-zh" lang="zh">{{ .school_zh }}</span><br><span class="edu-degree">{{ .degree }}</span></div>
+    <span class="dates">{{ .dates }}</span>
+  </div>
+  {{- end }}
+</section>
+
+<!-- Writing -->
+{{ $posts := where .Site.RegularPages "Type" "post" }}
+{{ with $posts }}
+<section id="writing" class="cv-section no-print">
+  <h2>Writing</h2>
+  <ul class="post-list">
+    {{- range first 5 . }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a> <span class="post-list-date">{{ .Date.Format "Jan 2006" }}</span></li>
+    {{- end }}
+  </ul>
+  <p class="more"><a href="{{ "archives/" | relURL }}">All posts &rarr;</a></p>
+</section>
+{{ end }}
+
+<p class="updated">Last updated {{ now.Format "January 2006" }}.</p>
 
 {{ partial "default_foot.html" . }}

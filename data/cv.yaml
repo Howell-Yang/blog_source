@@ -1,0 +1,193 @@
+# Content of the CV homepage (layouts/index.html).
+# Text fields accept Markdown: **bold**, *italic*, [links](https://...).
+# Edit this file to update the site; no template changes needed.
+
+profile:
+  name: Yang Hao
+  name_zh: 杨豪
+  title: Model Quantization & Deployment Lead
+  affiliation: QCraft (轻舟智航) · Perception ML-Infra
+  avatar: /public/img/avatar.jpg
+  email: howellyang@buaa.edu.cn
+  github: Howell-Yang
+  # Optional: put a PDF at static/files/ and set the path, e.g. /files/YangHao_CV.pdf
+  cv_pdf: ""
+  bio:
+    - >-
+      I take deep-learning models from training to production automotive chips.
+      At [QCraft](https://www.qcraft.ai/) I lead model quantization and on-device
+      deployment for about 19 production driving and parking models: BEV perception,
+      occupancy, vector maps, temporal tracking and end-to-end planning. They run on
+      Horizon J5/J6M, NVIDIA Orin, Qualcomm and AXERA chips.
+    - >-
+      My work spans quantization algorithms (PTQ, QAT, quantization-aware distillation),
+      bit-level numerical consistency across toolchains, latency modeling, and the
+      platforms and release gates that make this repeatable. I lead a six-engineer team
+      and am technical lead for bringing our urban NOA stack to a new chip family.
+      Before QCraft I worked at Tencent Maps and Yitu Technology, and I studied pattern
+      recognition at Beihang University.
+  interests:
+    - Model quantization (PTQ / QAT / QAD)
+    - Efficient on-device inference
+    - End-to-end autonomous driving
+    - ML infrastructure and tooling
+
+news:
+  - date: "Jun 2026"
+    text: "Became technical lead for bringing our urban NOA stack to **AXERA M95** (350 TOPS); the v4 stack now runs on test vehicles."
+  - date: "Apr 2026"
+    text: "Started AI-assisted quantization automation: a Feishu bot plus coding-agent skills that adapt new model features for quantization."
+  - date: "2026"
+    text: "Took on direct reports as lead of the model quantization and deployment team."
+  - date: "2025"
+    text: "Introduced distillation-based QAT so INT8 models match the float model case by case."
+  - date: "2024"
+    text: "Promoted to L5 at QCraft."
+  - date: "Oct 2022"
+    text: "Joined QCraft as a machine learning infrastructure engineer."
+
+experience:
+  - org: QCraft
+    org_zh: 轻舟智航
+    url: https://www.qcraft.ai/
+    role: Model Quantization & Deployment Lead, Perception ML-Infra
+    dates: Oct 2022 – present
+    note: Joined as Machine Learning Infrastructure Engineer; promoted to L5 in 2024; team lead since 2025.
+    groups:
+      - title: Team leadership and program delivery
+        items:
+          - "Lead a 6-engineer quantization and deployment team (dotted-line from 2025, direct reports from 2026): quarterly goals, P0/P1 priorities, an owner and a backup for each of about 19 production models, design reviews and 1:1 coaching."
+          - "Technical lead since June 2026 for the AXERA chip program (M97 700-TOPS demo board, then the M95 350-TOPS target): staged bring-up, model adaptation and quantization, road-test issue triage. The urban NOA v4 stack runs on test vehicles with no frame drops on key models."
+          - "Launched AI-assisted automation (60 person-days, Apr–Jun 2026): a Feishu bot and coding-agent skills adapt new model features for quantization. Also ran a training-speedup push across five models; one model trained about 50% faster."
+          - "Built the team's bench: mentoring to independent model ownership, monthly quantization sessions, a company-wide tech talk and a 33-page knowledge base. Model owners have started running auto-QAT releases themselves."
+      - title: Quantization algorithms
+        items:
+          - "Moved the method forward with each model generation: scale-search PTQ (2023, patent filed), LSQ-based AutoQuant for MapFormer and SparseTrack (2024), distillation-based QAT (2025), and large-scale quantization-aware distillation (QAD) for end-to-end trajectory outputs (2026)."
+          - "Cut quantization loss from about **2 points (PTQ) to about 0.5 points (QAT)** on five production perception models."
+          - "Changed the production goal from average-metric parity to case-level consistency with the float model (an AEB target must not be detected even a frame late), supported by per-layer, cumulative-error and W16A16 sensitivity tools."
+          - "Designed adaptive lookup tables for non-linear operators: across 600 LUT modules in four production graphs, **0.217 LSB** mean error (2 LSB max) with **85% fewer tables** than the fixed 126-table design."
+          - "Quantized the end-to-end World2Action planning model through controlled single-variable experiments (25 key metrics, 388 shared scalars); quantized versions went to on-vehicle testing."
+      - title: Toolchain and deployment platform
+        items:
+          - "Built **QNN Web**, a one-click conversion service for NVIDIA Orin and Horizon J5/J6 (gRPC back end, configs generated from ONNX, TensorRT timing cache): **4,273** production conversions, build time from 30–60 to about 5 minutes, about 80% less manual effort. Later added database-backed jobs, queueing and MCP endpoints for AI agents."
+          - "Defined the quantization framework's standard stages (pre-export, data conversion, Horizon export, post-processing, per-stage unit tests); led Horizon toolchain upgrades and worked with Horizon Robotics on toolchain issues."
+          - "Led the team onto new targets: Qualcomm (model splitting and latency tuning), TensorRT QDQ INT8, and VLM quantization on Horizon J6P."
+      - title: Numerical correctness and release quality
+        items:
+          - "Built a layered consistency method that isolates errors stage by stage across float, QAT, in-house IR, LibTorch, Horizon HBIR/HBM and on-board post-processing; it found an rsqrt LUT split-point error, an upsample align_corners mismatch and pose-precision bugs."
+          - "Introduced evidence-graded release gates (source, build, simulation, board, vehicle), default-off feature flags and a regression set of past failures run before every release."
+      - title: Latency, training infrastructure and model architecture
+        items:
+          - "Built a structural latency model accurate to **0.7%** on board (19.38 ms predicted vs 19.25 ms measured), which ruled out a wider occupancy range at 10 Hz before any code was written."
+          - "Wrote the OneModel phase-2 plan: one shared image backbone and neck for five perception models across 9 cameras, estimated to save 5–9 ms per frame, with PCA on existing checkpoints to size the backbone."
+          - "Migrated BEV occupancy training to PyTorch 2.x: **54% faster** per iteration (V100, batch 16, AMP), 9% less GPU memory, scaling benchmarked to 112 GPUs."
+          - "Designed and reviewed a ~235M-parameter SparseDrive-style end-to-end driving prototype (10 cameras, LiDAR and SD map feeding detection, map, occupancy, traffic-light and planning heads)."
+
+  - org: Tencent Maps
+    org_zh: 腾讯地图
+    url: https://map.qq.com/
+    role: Algorithm Engineer, Map Platform (CSIG)
+    dates: Jul 2021 – Oct 2022
+    groups:
+      - title: ""
+        items:
+          - "Built a TensorRT INT8 quantization and deployment pipeline for cloud GPU models, with in-house quantization and conversion tools: cosine similarity above 0.999 to the float model, inference latency −20%, GPU utilization −10%, GPU memory −10%; saved roughly ¥3M in compute cost."
+          - "Designed the perception SDK for AR navigation: a multi-stream parallel framework with automatic profiling. Delivered 12 features in four months with CPU usage under 70%; shipped on the JMC CX743 production vehicle, whose data return feeds Tencent Maps updates."
+          - "Built the NBT evaluation platform, an internal web service for model and data management, algorithm evaluation and result sharing, with hooks for bad-case analysis and map-building visualization."
+          - "Optimized vehicle-side map-building and data-collection pipelines and ARM on-board CPU usage."
+
+  - org: Yitu Technology
+    org_zh: 依图科技
+    url: https://www.yitutech.com/
+    role: Algorithm Engineer
+    dates: Apr 2019 – Jul 2021
+    groups:
+      - title: ""
+        items:
+          - "Built a C++ face-recognition engine that combines several models, tuning the combination strategy for throughput and recognition rate; deployed in projects including face-recognition metro entry in Guiyang."
+          - "Trained machine-translation models."
+          - "Quantized and deployed models on Yitu's QuestCore (求索) AI chip; developed quantization tools, accuracy evaluation and the model zoo."
+
+projects:
+  - title: "From PTQ to QAD: quantization that matches the float model"
+    where: QCraft · 2023–2026
+    page: /projects/float-consistent-quantization/
+    metric: "2 → 0.5"
+    metric_label: points of quantization loss
+    text: "Four generations of method (scale-search PTQ, LSQ-based AutoQuant, distillation-based QAT, large-scale QAD), each introduced as models grew more complex. The goal moved from average-metric parity to case-level consistency with the float model."
+  - title: Adaptive lookup tables for non-linear operators
+    where: QCraft · 2026
+    page: /projects/adaptive-lut/
+    metric: "≤ 2 LSB"
+    metric_label: worst-case error, 85% fewer tables
+    text: "An error-driven segmentation algorithm for fixed-point lookup tables (rsqrt, reciprocal, exp, sigmoid). It bisects only where the real fixed-point error is high, guaranteeing 2 LSB worst-case error with 12–30 tables per operator instead of 126."
+  - title: Layered numerical consistency and release gates
+    where: QCraft · 2024–2026
+    page: /projects/numerical-consistency/
+    metric: "12"
+    metric_label: checkpoints, camera to on-board
+    text: "Every stage from vehicle data to on-board post-processing is compared with the one before on identical inputs, so a mismatch has exactly one possible source. Results carry an evidence grade, and past failures re-run before every release."
+  - title: Predicting on-board latency before writing code
+    where: QCraft · 2025–2026
+    page: /projects/latency-modeling/
+    metric: "0.7%"
+    metric_label: prediction error on board
+    text: "A block-level latency model predicted 19.38 ms against 19.25 ms measured. It ruled out a wider occupancy range at 10 Hz early, ranked six deployment options, and led to a backbone shared by five perception models."
+  - title: QNN Web, one-click model conversion for every chip
+    where: QCraft · 2022–2026
+    page: /projects/qnn-web/
+    metric: "4,273"
+    metric_label: production conversions
+    text: "A conversion service: upload a model once and get engines for every target chip. Configs are generated from the graph, a TensorRT timing cache cut builds to about 5 minutes, and an MCP layer lets AI agents submit and track jobs."
+  - title: Urban NOA on a new chip (AXERA M95)
+    where: QCraft · 2026
+    page: /projects/axera-m95/
+    metric: "350"
+    metric_label: TOPS target chip
+    text: "Technical lead for porting the urban NOA stack: staged bring-up from a 700-TOPS demo board to the M95, model adaptation and quantization, and clustered road-test issues. The v4 stack runs on test vehicles with no frame drops on key models."
+  - title: TensorRT INT8 for cloud GPU models, and onnx2trt
+    where: Tencent Maps · 2021–2022
+    page: /projects/tensorrt-int8/
+    url: https://github.com/Howell-Yang/onnx2trt
+    metric: "≈ ¥3M"
+    metric_label: compute cost saved
+    text: "An INT8 quantization and deployment pipeline for cloud GPU models: cosine similarity above 0.999 to float, latency −20%, GPU utilization and memory −10%. The calibration tooling became the open-source onnx2trt."
+  - title: AR navigation perception SDK
+    where: Tencent Maps · 2021–2022
+    page: /projects/ar-navigation/
+    video: /public/img/AR_Navi_Map.mp4
+    text: "A multi-stream parallel perception framework with automatic profiling for phones and car head units: road-scene detection, parking-slot detection and AR guidance. 12 features in four months, CPU under 70%, shipped on the JMC CX743 production vehicle."
+  - title: NBT evaluation platform
+    where: Tencent Maps · 2021–2022
+    page: /projects/nbt-evaluation/
+    image: /public/img/nbt_eval_v1.png
+    text: "Internal web platform for model and data management, evaluation runs, result tracking and data sharing, with interfaces for bad-case analysis, returned-data management and map-building visualization."
+
+patents_talks:
+  - "**Patent (filed):** automatic quantization-parameter search framework, QCraft."
+  - "**Customer briefing:** bilingual (English/Chinese) quantization methodology briefing for an overseas automaker, 2026."
+  - "**Talks:** monthly in-house quantization sessions and a company-wide tech-weekly talk at QCraft; technical workshops with Horizon Robotics and AXERA."
+
+skills:
+  - area: Quantization
+    items: PTQ, QAT, QAD and distillation, LSQ / AutoQuant, AdaRound, scale search, mixed INT8/INT16, LUT-based non-linear operators, sensitivity analysis, per-layer error attribution
+  - area: Deployment
+    items: Horizon J5 / J6M / J6P (Horizon plugin, HBIR/HBM, BPU), NVIDIA Orin (TensorRT, custom plugins, QDQ), Qualcomm (QNN), AXERA M95 / M97, TNN, MNN
+  - area: Models
+    items: BEV detection, occupancy, vector maps, sparse temporal detection and tracking, end-to-end planning, multi-task perception, VLM
+  - area: Training
+    items: PyTorch 1.x / 2.x, DDP, AMP / BF16, multi-node training on NVIDIA V100 / H20 and Alibaba PPU
+  - area: Engineering
+    items: Python, C++, ONNX, TorchScript / LibTorch, gRPC services, Flask, MCP tool servers, AI coding agents, Git, CMake
+  - area: Languages
+    items: Chinese (native), English (technical presentations and documentation)
+
+education:
+  - school: Beihang University (BUAA)
+    school_zh: 北京航空航天大学
+    degree: M.Eng., Pattern Recognition
+    dates: Sep 2016 – Jan 2019
+  - school: Beihang University (BUAA)
+    school_zh: 北京航空航天大学
+    degree: B.Eng., Automation
+    dates: Sep 2012 – Jul 2016

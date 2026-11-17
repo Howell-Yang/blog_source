@@ -1,0 +1,10 @@
+{{- /* Usage: {{< pipeline "Stage A" "Stage B|small note" "Stage C" >}}
+     Each argument is one stage; text after "|" is shown as a note under the name. */ -}}
+{{- $n := len .Params -}}
+<div class="pipeline" role="list">
+{{- range $i, $p := .Params }}
+  {{- $parts := split $p "|" }}
+  <div class="pipe-stage" role="listitem"><span class="pipe-name">{{ index $parts 0 }}</span>{{ if gt (len $parts) 1 }}<span class="pipe-note">{{ index $parts 1 }}</span>{{ end }}</div>
+  {{- if lt (add $i 1) $n }}<span class="pipe-arrow" aria-hidden="true">&rarr;</span>{{ end }}
+{{- end }}
+</div>

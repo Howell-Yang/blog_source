@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-name" href="{{ "/" | relURL }}">{{ .Site.Params.Author }}<span class="site-name-zh">{{ .Site.Params.AuthorZh }}</span></a>
+    <nav class="site-nav" aria-label="Main">
+      {{- if .IsHome }}
+      <a class="nav-anchor" href="#experience">Experience</a>
+      <a class="nav-anchor" href="#projects">Projects</a>
+      <a class="nav-anchor" href="#skills">Skills</a>
+      {{- else }}
+      <a href="{{ "/" | relURL }}">CV</a>
+      <a href="{{ "projects/" | relURL }}">Projects</a>
+      {{- end }}
+      <a href="{{ "archives/" | relURL }}">Blog</a>
+      <a href="{{ "about/" | relURL }}" lang="zh">中文</a>
+    </nav>
+  </div>
+</header>

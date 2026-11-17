@@ -1,0 +1,71 @@
+# Interface text for each language. Pages choose a language with `ui_lang` in front matter
+# (default: en). The Chinese edition lives under /zh/.
+en:
+  html_lang: en
+  home_path: /
+  projects_path: /projects/
+  switch_label: 中文
+  switch_lang: zh
+  switch_title: 中文版
+  skip: Skip to content
+  nav_experience: Experience
+  nav_projects: Projects
+  nav_skills: Skills
+  nav_blog: Blog
+  nav_cv: CV
+  other_cv: 中文简历
+  cv_pdf: CV (PDF)
+  news: News
+  experience: Experience
+  projects: Selected Projects
+  projects_intro: Each project has a detail page with the problem, the method step by step, and the results.
+  all_projects: All projects
+  patents: Patent, Talks & Engagement
+  skills: Skills
+  education: Education
+  writing: Writing
+  all_posts: All posts
+  updated: Last updated
+  updated_format: January 2006
+  details: Method & details
+  code: Code
+  on_this_page: On this page
+  back_to_cv: Back to CV
+  read_details: Read the details
+  more_projects: More projects
+  portrait: Portrait of
+
+zh:
+  html_lang: zh-CN
+  home_path: /zh/
+  projects_path: /zh/projects/
+  switch_label: EN
+  switch_lang: en
+  switch_title: English version
+  skip: 跳到正文
+  nav_experience: 工作经历
+  nav_projects: 项目
+  nav_skills: 技能
+  nav_blog: 博客
+  nav_cv: 简历
+  other_cv: English CV
+  cv_pdf: 简历 PDF
+  news: 近期动态
+  experience: 工作经历
+  projects: 代表项目
+  projects_intro: 每个项目都有详情页，介绍问题、分步方法和结果。
+  all_projects: 全部项目
+  patents: 专利、分享与交流
+  skills: 专业技能
+  education: 教育背景
+  writing: 文章
+  all_posts: 全部文章
+  updated: 最后更新于
+  updated_format: 2006 年 1 月
+  details: 方法与细节
+  code: 代码
+  on_this_page: 本页目录
+  back_to_cv: 返回简历
+  read_details: 查看详情
+  more_projects: 更多项目
+  portrait: 照片：

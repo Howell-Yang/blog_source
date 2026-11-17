@@ -1,0 +1,60 @@
+{{ partial "default_head.html" . }}
+{{- $lang := .Params.ui_lang | default "en" -}}
+{{- $t := index .Site.Data.strings $lang -}}
+
+<article class="project-page">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="{{ $t.home_path | relURL }}">{{ $t.nav_cv }}</a><span aria-hidden="true">/</span><a href="{{ $t.projects_path | relURL }}">{{ $t.nav_projects }}</a>
+  </nav>
+
+  <header class="pp-header">
+    <h1 class="pp-title">{{ .Title }}</h1>
+    {{- with .Params.summary }}
+    <p class="pp-summary">{{ . | markdownify }}</p>
+    {{- end }}
+    <p class="pp-meta">
+      {{- with .Params.org }}<span><i class="fa fa-building-o" aria-hidden="true"></i> {{ . }}</span>{{ end }}
+      {{- with .Params.period }}<span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ . }}</span>{{ end }}
+      {{- with .Params.role }}<span><i class="fa fa-user-o" aria-hidden="true"></i> {{ . }}</span>{{ end }}
+    </p>
+    {{- with .Params.metrics }}
+    <div class="pp-metrics">
+      {{- range . }}
+      <div class="pp-metric"><span class="metric-value">{{ .value }}</span><span class="metric-label">{{ .label }}</span></div>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- with .Params.topics }}
+    <ul class="tags" aria-label="Topics">
+      {{- range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{- end }}
+    {{- with .Params.links }}
+    <p class="pp-links">
+      {{- range . }}<a href="{{ .url }}">{{ .label }} <i class="fa fa-external-link" aria-hidden="true"></i></a>{{ end }}
+    </p>
+    {{- end }}
+  </header>
+
+  {{- $toc := .TableOfContents }}
+  {{- if and (gt (len $toc) 120) (ne .Params.toc false) }}
+  <details class="toc" open>
+    <summary>{{ $t.on_this_page }}</summary>
+    {{ $toc }}
+  </details>
+  {{- end }}
+
+  <div class="pp-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-meta">
+    <nav class="post-nav" aria-label="{{ $t.more_projects }}">
+      {{- with .PrevInSection }}<a href="{{ .RelPermalink }}">&larr; {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+      {{- with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} &rarr;</a>{{ end }}
+    </nav>
+    <p class="back-links"><a href="{{ $t.projects_path | relURL }}">{{ $t.all_projects }}</a> &middot; <a href="{{ $t.home_path | relURL }}">{{ $t.back_to_cv }}</a></p>
+  </footer>
+</article>
+
+{{ partial "default_foot.html" . }}

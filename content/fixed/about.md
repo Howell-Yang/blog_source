@@ -1,186 +1,52 @@
 ---
 author: howellyang
-title: 关于我
+title: 中文简介
 url: /about/
-sidebar: true
 weight: "1"
 type: fixed
+description: 杨豪，轻舟智航模型量化与部署负责人，专注自动驾驶模型的量化、部署与 ML 基础设施。
 ---
 
-<br>
-欢迎来到我的博客! 我叫杨豪, 我将在这里发布关于技术的一些思考，一些好用的小工具，以及一些教程。我目前就职于腾讯CSIG-地图平台部，技术领域是利用计算机视觉算法，进行自动驾驶、三维见图、视觉动作捕捉等研究。<br>
-<br>
+<p class="lead">杨豪 · 模型量化与部署负责人 · 轻舟智航 感知 ML-Infra<br>
+<a href="mailto:howellyang@buaa.edu.cn">howellyang@buaa.edu.cn</a> · <a href="https://github.com/Howell-Yang">GitHub</a> · <a href="/">English CV</a></p>
 
-# 个人信息
+## 简介
 
-- **姓名** 杨豪
-- **出生年月** 1992-12
-- **工作年限** 3 年
-- **博客** http://www.howellyang.com
-- **Github** https://github.com/Howell-Yang
-- **手机** 13260129163
-- **Email** howellyang@buaa.edu.cn
+我专注于把深度学习模型从训练落地到量产车规芯片。在轻舟智航，我负责约 19 个量产行车、泊车模型的量化与部署，覆盖 BEV 感知、Occupancy、矢量地图、时序跟踪和端到端规划，平台包括地平线 J5/J6M、英伟达 Orin、高通和爱芯。我带领 6 人的量化部署团队，并担任爱芯芯片项目的技术负责人。此前就职于腾讯地图和依图科技，硕士毕业于北京航空航天大学模式识别专业。
 
-<br>
+## 工作经历
 
-# 教育经历
+### 轻舟智航 · 模型量化与部署负责人（2022.10 – 至今）
 
-- 2016 年 9 月 ~ 2019 年 1 月 北京航空航天大学 模式识别 硕士
-- 2012 年 9 月 ~ 2016 年 7 月 北京航空航天大学 自动化 本科
+- **团队与项目：** 带领 6 人量化部署团队（2025 年起虚线、2026 年起实线），为约 19 个量产模型设定负责人与 backup 机制；2026 年 6 月起担任爱芯 M95（350 TOPS）城市 NOA 适配项目技术负责人，v4 方案已在测试车上运行，关键模型无掉帧。
+- **量化算法：** 随模型演进先后推出 scale search PTQ（已申请专利）、基于 LSQ 的 AutoQuant、带蒸馏的 QAT 以及面向端到端轨迹输出的大规模 QAD；在 5 个量产感知模型上将量化掉点从约 2 个点降到约 0.5 个点；自适应查表算子在 600 个 LUT 模块上平均误差 0.217 LSB，表数量减少 85%。
+- **工具链与平台：** 开发 QNN Web 一键多平台模型转换服务，累计完成 4,273 次量产模型转换，单次编译从 30–60 分钟降至约 5 分钟，人工耗时减少约 80%；后续增加任务数据库、队列和 MCP 接口，支持 AI Agent 调用。
+- **一致性与发版质量：** 建立 Float → QAT → QIR → LibTorch → HBIR → HBM → 板端 的分层一致性排查方法，以及源码、编译、仿真、板端、实车的分级发版门禁。
+- **性能与训练：** 结构级耗时模型的板端预测误差 0.7%（预测 19.38 ms，实测 19.25 ms）；主导 OneModel 二期方案，五个感知模型共享 backbone，预计节省 5–9 ms；BEV Occupancy 训练迁移 PyTorch 2.x，单 iter 耗时降低 54%。
 
-<br>
+### 腾讯地图 · 算法工程师（2021.07 – 2022.10）
 
-# 工作经历
+- **GPU 算力优化：** 搭建基于 TensorRT 的 INT8 量化部署流程和量化转换工具，量化模型输出与浮点 cosine 相似度高于 0.999，推理耗时降低 20%，GPU 占用和显存各降低 10%，节省约 300 万元算力成本。
+- **AR 导航感知 SDK：** 设计多流程并行框架并加入自动 profile，四个月完成 12 项功能，CPU 占用控制在 70% 以下，在江铃 CX743 量产车型上线，回传数据辅助腾讯地图更新。
+- **NBT 评测平台：** 开发内部评测网站，支持模型与数据管理、算法评测、结果管理和数据共享。
 
-## 腾讯(2021 年 7 月 ~ 至今）
+### 依图科技 · 算法工程师（2019.04 – 2021.07）
 
-### GPU 算力优化
+- 开发 C++ 人脸识别引擎，优化多模型组合策略，应用于贵阳地铁刷脸等项目。
+- 负责机器翻译模型训练。
+- 基于依图“求索”芯片的模型量化与部署，开发量化工具、指标评测与 model zoo。
 
-我负责优化云端模型的量化、部署和测试。针对 GPU 资源消耗过多的问题，搭建了基于 TensorRT 的模型量化和部署的流程。遇到的主要问题是量化后的模型存在精度损失，最后调研了一系列的模型量化算法，并开发了模型量化和转换工具，来实现自动化的模型转化和测试。最终量化模型的输出的 cosine 相似度高于 0.999, 同时模型 infer 的耗时降低 20%，GPU 的占用率降低 10%，GPU 显存降低 10%。实现了降本增效，节省三百万左右的算力成本。
+## 教育经历
 
-### NBT 评测网站项目
+- 2016.09 – 2019.01 北京航空航天大学 · 模式识别 · 硕士
+- 2012.09 – 2016.07 北京航空航天大学 · 自动化 · 本科
 
-负责开发一个内部使用的评测网站，方便所有人进行模型&数据管理、算法评测、结果管理、数据共享。并且预留接口，以实现 badcase 分析、回流数据管理、建图结果展示等功能。
+## 专利与分享
 
-<div style="column-count:3;text-align: center; justify-content: center;">
-<p style="text-align: center; justify-content: center;">
-<img src="/public/img/nbt_eval_design.png"  alt="" height="180" width="360" class="pic"/>
-<p style="text-align:center; justify-content: center;">评测平台架构</p>
-</p>
+- 专利（已申请）：自动搜索量化参数框架
+- 为海外车企提供中英双语量化方法技术介绍
+- 组织月度量化分享会，在公司 tech weekly 分享模型量化；参与地平线、爱芯技术交流会
 
-<p style="text-align: center; justify-content: center;">
-<img src="/public/img/nbt_eval_design0.png"  alt="" height="180" width="360" class="pic"/>
-<p   style="text-align:center; justify-content: center;">评测平台接口设计</p>
-</p>
+## 开源项目
 
-<p style="text-align: center; justify-content: center;">
-<img src="/public/img/nbt_eval_v1.png"  alt="" height="180" width="360" class="pic"/>
-<p   style="text-align:center; justify-content: center;">评测平台页面效果图</p>
-</p>
-</div>
-
-<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">
-    <div id="innerdiv" style="position:absolute;">
-        <img id="bigimg" style="border:5px solid #fff;" src="" />
-  </div>
-</div>
-
-### AR 导航项目
-
-将模型部署到手机、车机端对于 SDK 的性能要求较高，需要在完成复杂功能的基础上，尽可能的降低耗时和 CPU 占用率。针对这个需求，设计了多流程并行的框架，并加入了自动 profile 功能。共完成功能 12 项，实现实时的 AR 导航功能，并将 CPU 占用率控制在 70%以下。在四个月的时间里完成了个 AR 导航中的感知功能，并正式在江铃 CX743 车辆上线。后续该车正式量产，并实现了数据的回传，能有效辅助腾讯地图的数据更新。不同模块的效果如下:
-
-<div style="column-count:3;text-align: center; justify-content: center;">
-
-<p style="text-align: center; justify-content: center;">
-<video src="/public/img/nano_det.mp4" muted  alt=""  type="video/mp4" height="180" width="360" controls="controls" autoplay="autoplay"  loop="loop">
-<p  style="text-align:center; justify-content: center;">道路感知结果</p>
-</p>
-
-<p style="text-align: center; justify-content: center;">
-<video src="/public/img/parkingSlotDetection.mp4"  muted alt=""  height="180" width="360" controls="controls" autoplay="autoplay"  loop="loop">
-<p  style="text-align:center; justify-content: center;">停车位检测结果</p>
-</p>
-
-<p style="text-align: center; justify-content: center;">
-<video src="/public/img/AR_Navi_Map.mp4"  muted alt=""  height="180" width="360" controls="controls" autoplay="autoplay"  loop="loop">
-<p  style="text-align:center; justify-content: center;">AR导航效果</p>
-</p>
-
-</div>
-
-## 依图科技 （ 2019 年 4 月 ~ 2021 年 7 月 ）
-
-### 脸行贵阳-地铁刷脸项目
-
-我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-
-### 机器翻译项目
-
-我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-
-# 开源项目
-
-（对于程序员来讲，没有什么比 Show me the code 能有说服力了）
-
-- [onnx2trt](https://github.com/Howell-Yang/onnx2trt)：
-  - 用于进行 onnx 模型到 tensorRT 模型的 int8 量化
-  - 集成了 onnx_quantization 和 tensorRT 自带的模型量化算法
-  - 开放模型量化接口，用于实现自定义的模型量化算法
-  - 实现了基于 cosine 优化的模型量化算法
-- [blog_source](https://github.com/Howell-Yang/blog_source)
-  - 基于 hugo 开发的个人博客模板网站
-  - 加入了一系列的格式优化和说明文档
-  - 用于进行个人博客网站的开发
-
-# 技术文章
-
-- [tensorRT 模型量化教程] TODO
-- [个人博客网站教程] TODO
-- [paper reading] TODO
-
-# 演讲和讲义
-
-- 2014 架构师大会演讲 [如何通过 Docker 优化内部开发](http://ftqq.com)
-- 7 月 T9 晋升 PPT [vps_sdk 的开发](http://ftqq.com)
-
-# 技能清单
-
-- 编程语言 C++/Python
-- 计算机视觉 检测、分割、分类
-- 自然语言处理 机器翻译
-- 魔性训练框架 tensorflow/pytorch/caffe
-- 模型部署框架 onnx/TNN/MNN/PaddleLite/TensorRT
-- 前端框架 HTML/CSS/JavaScript
-- 后端框架 Flask/MongoDB
-- 基础开发 Git/Bash/Gcc/Cmake
-
-<script>
-    $(function() {
-        $('img').click(function() {
-            var _this = $(this);// 将当前的pimg元素作为_this传入函数
-            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
-        });
-    });
- 
-    function imgShow(outerdiv, innerdiv, bigimg, _this) {
-        var src = _this.attr("src");// 获取当前点击的pimg元素中的src属性
-        $(bigimg).attr("src", src);// 设置#bigimg元素的src属性
- 
-        /* 获取当前点击图片的真实大小，并显示弹出层及大图 */
-        $("<img/>").attr("src", src).load(function() {
-            var windowW = $(window).width();// 获取当前窗口宽度
-            var windowH = $(window).height();// 获取当前窗口高度
-            var realWidth = 1000;// 获取图片真实宽度
-            var realHeight = 1000;// 获取图片真实高度
-            var imgWidth, imgHeight;
-            var scale = 1;// 缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放
- 
-            if (realHeight > windowH * scale) {// 判断图片高度
-                imgHeight = windowH * scale;// 如大于窗口高度，图片高度进行缩放
-                imgWidth = imgHeight / realHeight * realWidth;// 等比例缩放宽度
-                if (imgWidth > windowW * scale) {// 如宽度扔大于窗口宽度
-                    imgWidth = windowW * scale;// 再对宽度进行缩放
-                }
-            } else if (realWidth > windowW * scale) {// 如图片高度合适，判断图片宽度
-                imgWidth = windowW * scale;// 如大于窗口宽度，图片宽度进行缩放
-                imgHeight = imgWidth / realWidth * realHeight;// 等比例缩放高度
-            } else {// 如果图片真实高度和宽度都符合要求，高宽不变
-                imgWidth = realWidth;
-                imgHeight = realHeight;
-            }
-            $(bigimg).css("width", imgWidth);// 以最终的宽度对图片缩放
- 
-            var w = (windowW - imgWidth) / 2;// 计算图片与窗口左边距
-            var h = (windowH - imgHeight) / 2;// 计算图片与窗口上边距
-            $(innerdiv).css({
-                "top" : h,
-                "left" : w
-            });// 设置#innerdiv的top和left属性
-            $(outerdiv).fadeIn("fast");// 淡入显示#outerdiv及.pimg
-        });
- 
-        $(outerdiv).click(function() {// 再次点击淡出消失弹出层
-            $(this).fadeOut("fast");
-        });
-    }
-</script>
+- [onnx2trt](https://github.com/Howell-Yang/onnx2trt)：ONNX 到 TensorRT 的 INT8 量化工具，集成 onnx 量化与 TensorRT 自带校准算法，支持自定义量化算法和基于 cosine 的校准方法。

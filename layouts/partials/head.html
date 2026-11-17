@@ -1,48 +1,43 @@
 <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  {{- $author := .Site.Params.Author -}}
+  {{- $desc := .Site.Params.Description -}}
+  {{- with .Description }}{{ $desc = . }}{{ end }}
+  {{- $title := printf "%s · %s" $author .Site.Params.Role -}}
+  {{- if not .IsHome }}{{ $title = printf "%s · %s" .Title $author }}{{ end }}
 
-  <title>
-    {{- if eq .Permalink "/" -}}
-      {{- .Site.Params.Title }} - {{ .Site.Params.Tagline -}}
-    {{ else }}
-      {{- .Title }} - {{ .Site.Params.Title }} - {{ .Site.Params.Tagline -}}
-    {{- end -}}
-  </title>
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}">
+  <meta name="author" content="{{ $author }}">
+  <meta name="keywords" content="{{ .Site.Params.Keywords }}">
 
-  <!--Metadata-->
-  {{ with .Site.Params.Author }}<meta name="author" content="{{ . }}">{{ end }}
-  {{ with .Site.Title }}<meta property="og:site_name" content="{{ . }}">{{ end }}
-  {{ if eq .Permalink "/" }}
-  <meta property="og:description" content="{{ .Site.Params.Title }} - {{ .Site.Params.Tagline }}">
-  <meta property="og:title" content="{{ .Site.Params.Title }} - {{ .Site.Params.Tagline }}">
-  {{ else }}
-  <meta property="og:description" content="{{ .Title }} - {{ .Site.Params.Title }} - {{ .Site.Params.Tagline }}">
-  <meta property="og:title" content="{{ .Title }} - {{ .Site.Params.Title }} - {{ .Site.Params.Tagline }}">
-  {{ end }}
-  <meta property="og:type" content="article">
-  <meta name="keywords" content="Cloud, Containers, Kubernetes, K8s, Docker, CNI, CRI-O, OCI, Linux, CLI, Networking, AWS, Security, DevOps">
+  <!-- Open Graph / social previews -->
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:type" content="{{ if .IsHome }}profile{{ else }}article{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "public/img/avatar.jpg" | absURL }}">
+  <meta name="twitter:card" content="summary">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/poole.css">
-  <link rel="stylesheet" href="/css/syntax.css">
-  <link rel="stylesheet" href="/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
-  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.min.css">
-
-  <!--Canonical URL-->
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <!-- Styles: system fonts only, so the page loads fast everywhere (including mainland China) -->
+  <link rel="stylesheet" href="{{ "public/font-awesome/css/font-awesome.min.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/syntax.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
 
-  <!-- RSS -->
-  {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="alternate" type="%s" href="%s" title="%s" />` .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-    {{ printf `<link rel="feed" type="%s" href="%s" title="%s" />` .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
+  <link rel="icon" href="{{ "assets/favicon.ico" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "public/img/avatar.jpg" | relURL }}">
+
+  {{ partial "rss_link.html" . }}
+
+  {{- if .IsHome }}
+  {{- $cv := .Site.Data.cv }}
+  {{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" $cv.profile.name "alternateName" $cv.profile.name_zh "jobTitle" $cv.profile.title "worksFor" (dict "@type" "Organization" "name" "QCraft") "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "Beihang University") "email" (printf "mailto:%s" $cv.profile.email) "url" .Site.BaseURL "image" ("public/img/avatar.jpg" | absURL) "sameAs" (slice (printf "https://github.com/%s" $cv.profile.github)) }}
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+  {{- end }}
 </head>

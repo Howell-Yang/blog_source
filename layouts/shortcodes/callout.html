@@ -1,0 +1,2 @@
+{{- /* Usage: {{< callout >}}Markdown text{{< /callout >}}  or  {{< callout "result" >}}...{{< /callout >}} */ -}}
+<aside class="callout{{ with .Get 0 }} callout-{{ . }}{{ end }}">{{ .Inner | markdownify }}</aside>

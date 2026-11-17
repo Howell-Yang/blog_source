@@ -1,0 +1,13 @@
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    {{- $lang := .Params.ui_lang | default "en" }}
+    <span>&copy; {{ now.Year }} {{ if eq $lang "zh" }}{{ .Site.Params.AuthorZh }} ({{ .Site.Params.Author }}){{ else }}{{ .Site.Params.Author }} ({{ .Site.Params.AuthorZh }}){{ end }}</span>
+    <span class="footer-links">
+      <a href="mailto:{{ .Site.Params.Email }}" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i> {{ if eq $lang "zh" }}邮箱{{ else }}Email{{ end }}</a>
+      <a href="https://github.com/{{ .Site.Params.GitHubUser }}" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>

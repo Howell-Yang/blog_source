@@ -4,7 +4,7 @@
     "rssLimit": 15,
     "disablePathToLower": false,
     "languageCode": "en-us",
-    "title": "杨豪-博客",
+    "title": "Yang Hao (杨豪)",
     "publishdir": "output",
     "permalinks": {
         "post": ":year/:month/:day/:title/",
@@ -12,17 +12,15 @@
     },
     "theme": "lanyon-hugo",
     "params": {
-        "Title": "Howell Yang's Weblog",
-        "Tagline": "我是杨豪，专注于深度学习模型的训练、剪枝、量化、部署以及工程效率优化。欢迎来到我的博客。",
-        "Author": "Howell Yang",
+        "Title": "Yang Hao (杨豪)",
+        "Author": "Yang Hao",
+        "AuthorZh": "杨豪",
+        "Role": "Model Quantization & Deployment Lead",
+        "Email": "howellyang@buaa.edu.cn",
         "GitHubUser": "Howell-Yang",
-        "TwitterUser": "None",
-        "LinkedInUser": "None",
-        "Description": "利用计算机视觉算法，进行自动驾驶、三维见图、视觉动作捕捉等研究。",
-        "DateForm": "Mon, Jan 02, 2006"
-    },
-    "blackfriday": {
-        "fractions": false
+        "Description": "Yang Hao (杨豪): model quantization and deployment lead for autonomous driving at QCraft. PTQ, QAT and quantization-aware distillation; on-device inference on Horizon, NVIDIA, Qualcomm and AXERA chips; ML infrastructure.",
+        "Keywords": "Yang Hao, 杨豪, model quantization, QAT, PTQ, QAD, model deployment, TensorRT, Horizon J6, autonomous driving, ML infrastructure, edge AI",
+        "DateForm": "Jan 2, 2006"
     },
     "outputs": {
         "home": ["HTML","RSS"],
@@ -34,39 +32,10 @@
             "baseName": "feed"
         }
     },
-    "deployment": {
-        "targets": [
-            {
-                "name": "aws",
-                "url": "s3://blog-scottlowe-org-cdn?region=us-east-1"
-            }
-        ],
-        "matchers": [
-            {
-                "pattern": "^.+\\.(js|css|svg|ttf)$",
-                "cacheControl": "max-age=31536000, no-transform, public",
-                "gzip": "true"
-            },
-            {
-                "pattern": "^.+\\.(png|jpg)$",
-                "cacheControl": "max-age=31536000, no-transform, public",
-                "gzip": "true"
-            },
-            {
-                "pattern": "^sitemap\\.xml$",
-                "contentType": "application/xml",
-                "gzip": "true"
-            },
-            {
-                "pattern": "^.+\\.(html|xml|json)$",
-                "gzip": "true"
-            }
-        ]
-    },
     "markup": {
         "goldmark": {
-        "renderer":{
-            "unsafe": true
+            "renderer": {
+                "unsafe": true
             }
         }
     }

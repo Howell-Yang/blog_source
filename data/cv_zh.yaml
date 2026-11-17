@@ -1,0 +1,183 @@
+# 中文简历页面（/zh/，模板 layouts/cv/list.html）的内容。
+# 文本字段支持 Markdown：**加粗**、[链接](https://...)。
+# 结构与 data/cv.yaml 相同；修改英文版时请同步修改这里。
+
+profile:
+  name: 杨豪
+  name_alt: Yang Hao
+  title: 模型量化与部署负责人
+  affiliation: 轻舟智航 · 感知 ML-Infra
+  avatar: /public/img/avatar.jpg
+  email: howellyang@buaa.edu.cn
+  github: Howell-Yang
+  # 可选：把 PDF 放到 static/files/ 并填写路径，例如 /files/YangHao_CV_zh.pdf
+  cv_pdf: ""
+  bio:
+    # 中文段落请写在一行内：YAML 折行会在汉字之间插入空格。
+    - "我专注于把深度学习模型从训练落地到量产车规芯片。在[轻舟智航](https://www.qcraft.ai/)，我负责约 19 个量产行车、泊车模型的量化与端侧部署，覆盖 BEV 感知、Occupancy、矢量地图、时序跟踪和端到端规划，运行平台包括地平线 J5/J6M、英伟达 Orin、高通和爱芯。"
+    - "我的工作涵盖量化算法（PTQ、QAT、量化感知蒸馏）、跨工具链的逐 bit 数值一致性、耗时建模，以及让这些工作可复制的平台与发版门禁。我带领 6 人团队，并担任城市 NOA 方案迁移到新芯片的技术负责人。此前就职于腾讯地图和依图科技，硕士毕业于北京航空航天大学模式识别专业。"
+  interests:
+    - 模型量化（PTQ / QAT / QAD）
+    - 高效端侧推理
+    - 端到端自动驾驶
+    - 机器学习基础设施与工具链
+
+news:
+  - date: "2026.06"
+    text: "担任城市 NOA 方案适配 **爱芯 M95**（350 TOPS）的技术负责人，v4 方案已在测试车上运行。"
+  - date: "2026.04"
+    text: "启动 AI 辅助的量化自动化：飞书机器人加编程 Agent Skill，自动完成新模型特性的量化适配。"
+  - date: "2026"
+    text: "以实线负责人身份带领模型量化与部署团队。"
+  - date: "2025"
+    text: "引入带蒸馏的 QAT，让 INT8 模型逐 case 与浮点模型保持一致。"
+  - date: "2024"
+    text: "在轻舟智航晋升 L5。"
+  - date: "2022.10"
+    text: "以机器学习基础架构工程师身份加入轻舟智航。"
+
+experience:
+  - org: 轻舟智航
+    org_alt: QCraft
+    url: https://www.qcraft.ai/
+    role: 模型量化与部署负责人（感知 ML-Infra）
+    dates: 2022.10 – 至今
+    note: 入职时为机器学习基础架构工程师；2024 年晋升 L5；2025 年起负责团队。
+    groups:
+      - title: 团队管理与项目交付
+        items:
+          - "带领 6 人量化部署团队（2025 年起虚线、2026 年起实线）：制定季度目标与 P0/P1 优先级，为约 19 个量产模型各设一名负责人和一名 backup，负责技术评审和一对一辅导。"
+          - "2026 年 6 月起担任爱芯芯片项目技术负责人（先在 M97 700 TOPS 开发板验证，再到目标芯片 M95 350 TOPS）：分阶段适配、模型适配与量化、路测问题聚类分发。城市 NOA v4 方案已在测试车上运行，关键模型无掉帧。"
+          - "推动 AI 提效（60 人天，2026 年 4–6 月）：飞书机器人加编程 Agent Skill 自动完成新模型特性的量化适配；同时在 5 个模型上推进训练提速，其中一个模型训练耗时降低约 50%。"
+          - "建设团队梯队：帮助成员成长为可独立负责模型的工程师，组织月度量化分享会和公司级技术分享，维护 33 篇文档的知识库。模型 owner 已开始自行完成 auto-QAT 发版。"
+      - title: 量化算法
+        items:
+          - "随模型演进持续迭代方案：scale search PTQ（2023 年，已申请专利）、面向 MapFormer 和 SparseTrack 的 LSQ AutoQuant（2024 年）、带蒸馏的 QAT（2025 年）、面向端到端轨迹输出的大规模量化感知蒸馏 QAD（2026 年）。"
+          - "在 5 个量产感知模型上将量化掉点从 **约 2 个点（PTQ）降到约 0.5 个点（QAT）**。"
+          - "将量产目标从“平均指标对齐”改为“逐 case 与浮点一致”（AEB 目标哪怕晚一帧检出也不接受），并为此推动逐层误差、累积误差和 W16A16 敏感度分析工具。"
+          - "设计非线性算子的自适应查表方案：在 4 个量产计算图共 600 个查表模块上，平均误差 **0.217 LSB**（最大 2 LSB），表数量比固定 126 表方案 **减少 85%**。"
+          - "以单变量对照实验完成端到端 World2Action 规划模型的量化（25 项关键指标、388 个公共标量），量化版本已进入实车测试。"
+      - title: 工具链与部署平台
+        items:
+          - "开发 **QNN Web** 一键模型转换服务，支持英伟达 Orin 和地平线 J5/J6（gRPC 后端、根据 ONNX 自动生成配置、TensorRT timing cache）：累计 **4,273** 次量产转换，单次编译从 30–60 分钟降至约 5 分钟，人工耗时减少约 80%。后续增加任务数据库、任务队列和面向 AI Agent 的 MCP 接口。"
+          - "制定量化框架的标准阶段接口（导出前处理、数据转换、地平线导出、后处理、分阶段单元测试）；主导地平线工具链升级，并与地平线协作解决工具链问题。"
+          - "带领团队拓展新平台：高通（模型拆分与耗时优化）、TensorRT QDQ INT8，以及地平线 J6P 上的 VLM 量化。"
+      - title: 数值一致性与发版质量
+        items:
+          - "建立分层一致性排查方法，逐阶段比对 Float、QAT、内部 IR、LibTorch、地平线 HBIR/HBM 和板端后处理；定位了 rsqrt 查表分段点、upsample align_corners 不一致和位姿精度等问题。"
+          - "引入分级发版门禁（源码、编译、仿真、板端、实车）、新特性默认关闭的 feature flag，以及每次发版前运行的历史问题回归集。"
+      - title: 耗时、训练基础设施与模型架构
+        items:
+          - "建立结构级耗时模型，板端预测误差 **0.7%**（预测 19.38 ms，实测 19.25 ms），在写代码之前就判断出 Occupancy 扩大范围加 10 Hz 无法直接上线。"
+          - "撰写 OneModel 二期方案：5 个感知模型、9 路相机共享一个图像 backbone 和 neck，预计每帧节省 5–9 ms；用已有 checkpoint 的 PCA 分析确定 backbone 规模。"
+          - "BEV Occupancy 训练迁移到 PyTorch 2.x：单 iter **提速 54%**（V100、batch 16、AMP），显存降低 9%，完成最多 112 卡的扩展性压测。"
+          - "设计并评审约 2.35 亿参数的 SparseDrive 风格端到端驾驶原型（10 路相机、点云和 SD 地图输入，输出检测、地图、Occupancy、红绿灯和规划）。"
+
+  - org: 腾讯地图
+    org_alt: Tencent Maps
+    url: https://map.qq.com/
+    role: 算法工程师（CSIG 地图平台部）
+    dates: 2021.07 – 2022.10
+    groups:
+      - title: ""
+        items:
+          - "搭建云端 GPU 模型的 TensorRT INT8 量化部署流程及量化转换工具：与浮点模型 cosine 相似度高于 0.999，推理耗时降低 20%，GPU 占用和显存各降低 10%，节省约 300 万元算力成本。"
+          - "设计 AR 导航感知 SDK：多流程并行框架加自动 profile。四个月完成 12 项功能，CPU 占用低于 70%；在江铃 CX743 量产车型上线，回传数据辅助腾讯地图更新。"
+          - "开发 NBT 评测平台：支持模型与数据管理、算法评测和结果共享，并预留 badcase 分析和建图可视化接口。"
+          - "优化车端建图与数据采集流程，以及 ARM 板端 CPU 占用。"
+
+  - org: 依图科技
+    org_alt: Yitu Technology
+    url: https://www.yitutech.com/
+    role: 算法工程师
+    dates: 2019.04 – 2021.07
+    groups:
+      - title: ""
+        items:
+          - "开发 C++ 人脸识别引擎，组合多个模型并优化组合策略，兼顾吞吐和识别率；应用于贵阳地铁刷脸等项目。"
+          - "负责机器翻译模型训练。"
+          - "在依图“求索”AI 芯片上进行模型量化与部署，开发量化工具、精度评测和 model zoo。"
+
+projects:
+  - title: 从 PTQ 到 QAD：与浮点模型一致的量化
+    where: 轻舟智航 · 2023–2026
+    page: /zh/projects/float-consistent-quantization/
+    metric: "2 → 0.5"
+    metric_label: 个点的量化掉点
+    text: "四代量化方案（scale search PTQ、LSQ AutoQuant、带蒸馏的 QAT、大规模 QAD）随模型复杂度提升逐步引入。目标从“平均指标对齐”转向“逐 case 与浮点一致”。"
+  - title: 非线性算子的自适应查表
+    where: 轻舟智航 · 2026
+    page: /zh/projects/adaptive-lut/
+    metric: "≤ 2 LSB"
+    metric_label: 最大误差，表数减少 85%
+    text: "一种由误差驱动的定点查表分段算法（rsqrt、reciprocal、exp、sigmoid）：只在真实定点误差高的地方细分，每个算子用 12–30 张表即可保证最大误差不超过 2 LSB，而不是 126 张。"
+  - title: 分层数值一致性与发版门禁
+    where: 轻舟智航 · 2024–2026
+    page: /zh/projects/numerical-consistency/
+    metric: "12"
+    metric_label: 个检查点，从相机数据到板端
+    text: "从实车数据到板端后处理，每个阶段都在相同输入下与前一阶段比对，让每个不一致只可能来自一个地方。结论标注验证级别，历史问题在每次发版前重跑。"
+  - title: 写代码之前，先预测板端耗时
+    where: 轻舟智航 · 2025–2026
+    page: /zh/projects/latency-modeling/
+    metric: "0.7%"
+    metric_label: 板端预测误差
+    text: "分模块耗时模型预测 19.38 ms，实测 19.25 ms。它提前否定了 Occupancy 扩大范围加 10 Hz 的直接上线方案，对六种部署方案排序，并促成五个感知模型共享 backbone。"
+  - title: QNN Web：面向所有芯片的一键模型转换
+    where: 轻舟智航 · 2022–2026
+    page: /zh/projects/qnn-web/
+    metric: "4,273"
+    metric_label: 次量产转换
+    text: "上传一次模型，得到所有目标芯片的 engine。配置根据计算图自动生成，TensorRT timing cache 把编译降到约 5 分钟，MCP 接口让 AI Agent 可以提交和跟踪任务。"
+  - title: 新芯片上的城市 NOA（爱芯 M95）
+    where: 轻舟智航 · 2026
+    page: /zh/projects/axera-m95/
+    metric: "350"
+    metric_label: TOPS 目标芯片
+    text: "城市 NOA 方案迁移的技术负责人：从 700 TOPS 开发板到 M95 的分阶段适配、模型适配与量化、路测问题聚类。v4 方案已在测试车上运行，关键模型无掉帧。"
+  - title: 云端 GPU 模型的 TensorRT INT8 与 onnx2trt
+    where: 腾讯地图 · 2021–2022
+    page: /zh/projects/tensorrt-int8/
+    url: https://github.com/Howell-Yang/onnx2trt
+    metric: "≈ 300 万"
+    metric_label: 元算力成本节省
+    text: "云端 GPU 模型的 INT8 量化部署流程：与浮点 cosine 相似度高于 0.999，耗时降低 20%，GPU 占用和显存各降低 10%。其中的校准工具开源为 onnx2trt。"
+  - title: AR 导航感知 SDK
+    where: 腾讯地图 · 2021–2022
+    page: /zh/projects/ar-navigation/
+    video: /public/img/AR_Navi_Map.mp4
+    text: "面向手机和车机的多流程并行感知框架，带自动 profile：道路场景检测、车位检测和 AR 引导。四个月完成 12 项功能，CPU 低于 70%，在江铃 CX743 量产车型上线。"
+  - title: NBT 评测平台
+    where: 腾讯地图 · 2021–2022
+    page: /zh/projects/nbt-evaluation/
+    image: /public/img/nbt_eval_v1.png
+    text: "内部评测网站：模型与数据管理、算法评测、结果管理和数据共享，并预留 badcase 分析、回流数据管理和建图结果展示接口。"
+
+patents_talks:
+  - "**专利（已申请）：** 自动搜索量化参数框架，轻舟智航。"
+  - "**客户交流：** 2026 年为海外车企做中英双语的量化方法技术介绍。"
+  - "**技术分享：** 在轻舟组织月度量化分享会，在公司 tech weekly 分享；参与与地平线、爱芯的技术交流会。"
+
+skills:
+  - area: 量化
+    items: PTQ、QAT、QAD 与蒸馏、LSQ / AutoQuant、AdaRound、scale search、INT8/INT16 混合精度、查表非线性算子、敏感度分析、逐层误差定位
+  - area: 部署平台
+    items: 地平线 J5 / J6M / J6P（Horizon plugin、HBIR/HBM、BPU）、英伟达 Orin（TensorRT、自定义 plugin、QDQ）、高通（QNN）、爱芯 M95 / M97、TNN、MNN
+  - area: 模型类型
+    items: BEV 检测、Occupancy、矢量地图、稀疏时序检测与跟踪、端到端规划、多任务感知、VLM
+  - area: 训练
+    items: PyTorch 1.x / 2.x、DDP、AMP / BF16，英伟达 V100 / H20 与阿里 PPU 多机训练
+  - area: 工程
+    items: Python、C++、ONNX、TorchScript / LibTorch、gRPC 服务、Flask、MCP 工具服务、AI 编程 Agent、Git、CMake
+  - area: 语言
+    items: 中文（母语），英文（可用于技术汇报和文档）
+
+education:
+  - school: 北京航空航天大学
+    school_alt: Beihang University
+    degree: 硕士 · 模式识别
+    dates: 2016.09 – 2019.01
+  - school: 北京航空航天大学
+    school_alt: Beihang University
+    degree: 本科 · 自动化
+    dates: 2012.09 – 2016.07

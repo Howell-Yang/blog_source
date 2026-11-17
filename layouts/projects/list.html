@@ -1,0 +1,33 @@
+{{ partial "default_head.html" . }}
+{{- $lang := .Params.ui_lang | default "en" -}}
+{{- $t := index .Site.Data.strings $lang -}}
+
+<div class="projects-index">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ $t.home_path | relURL }}">{{ $t.nav_cv }}</a><span aria-hidden="true">/</span>{{ $t.nav_projects }}</nav>
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{- range .Pages.ByWeight }}
+  <article class="project">
+    <div class="project-visual">
+      {{- if .Params.video }}
+      <video src="{{ .Params.video | relURL }}" muted autoplay loop playsinline preload="metadata" aria-label="{{ .Title }}"></video>
+      {{- else if .Params.image }}
+      <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
+      {{- else }}
+      {{- with .Params.metrics }}{{ with index . 0 }}
+      <div class="metric"><span class="metric-value">{{ .value }}</span><span class="metric-label">{{ .label }}</span></div>
+      {{- end }}{{ end }}
+      {{- end }}
+    </div>
+    <div class="project-body">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p class="project-where">{{ .Params.org }} &middot; {{ .Params.period }}</p>
+      <p>{{ .Params.summary | markdownify }}</p>
+      <p class="read-more"><a href="{{ .RelPermalink }}">{{ $t.read_details }} &rarr;</a></p>
+    </div>
+  </article>
+  {{- end }}
+</div>
+
+{{ partial "default_foot.html" . }}

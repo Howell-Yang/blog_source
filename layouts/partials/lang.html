@@ -1,0 +1,10 @@
+{{- /* Prints the URL of this page in the other language.
+     Home, the Chinese CV and project pages have exact counterparts;
+     other pages (blog posts, archives, tags) link to the other language's homepage. */ -}}
+{{- $lang := .Params.ui_lang | default "en" -}}
+{{- $alt := "/zh/" -}}
+{{- if eq $lang "zh" }}{{ $alt = "/" }}{{ end -}}
+{{- if or .IsHome (eq .Type "projects") (eq .Type "cv") -}}
+  {{- if eq $lang "zh" }}{{ $alt = strings.TrimPrefix "/zh" .RelPermalink }}{{ else }}{{ $alt = printf "/zh%s" .RelPermalink }}{{ end -}}
+{{- end -}}
+{{- $alt -}}
