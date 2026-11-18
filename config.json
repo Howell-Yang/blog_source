@@ -1,5 +1,7 @@
 {
-    "ignoreErrors": ["error-output-taxonomy"],
+    "ignoreErrors": [
+        "error-output-taxonomy"
+    ],
     "baseurl": "https://www.howellyang.com/",
     "rssLimit": 15,
     "disablePathToLower": false,
@@ -20,11 +22,19 @@
         "GitHubUser": "Howell-Yang",
         "Description": "Yang Hao (杨豪): model quantization and deployment lead for autonomous driving at QCraft. PTQ, QAT and quantization-aware distillation; on-device inference on Horizon, NVIDIA, Qualcomm and AXERA chips; ML infrastructure.",
         "Keywords": "Yang Hao, 杨豪, model quantization, QAT, PTQ, QAD, model deployment, TensorRT, Horizon J6, autonomous driving, ML infrastructure, edge AI",
-        "DateForm": "Jan 2, 2006"
+        "DateForm": "Jan 2, 2006",
+        "RoleZh": "模型量化与部署负责人",
+        "DescriptionZh": "杨豪，轻舟智航模型量化与部署负责人：PTQ、QAT 与量化感知蒸馏，地平线、英伟达、高通与爱芯芯片上的端侧推理，机器学习基础设施。"
     },
     "outputs": {
-        "home": ["HTML","RSS"],
-        "taxonomy": ["HTML","RSS"]
+        "home": [
+            "HTML",
+            "RSS"
+        ],
+        "taxonomy": [
+            "HTML",
+            "RSS"
+        ]
     },
     "outputformats": {
         "RSS": {

@@ -3,11 +3,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  {{- $lang := .Params.ui_lang | default "en" -}}
   {{- $author := .Site.Params.Author -}}
+  {{- $role := .Site.Params.Role -}}
   {{- $desc := .Site.Params.Description -}}
+  {{- if eq $lang "zh" }}{{ $author = .Site.Params.AuthorZh }}{{ $role = .Site.Params.RoleZh }}{{ $desc = .Site.Params.DescriptionZh }}{{ end -}}
   {{- with .Description }}{{ $desc = . }}{{ end }}
-  {{- $title := printf "%s · %s" $author .Site.Params.Role -}}
-  {{- if not .IsHome }}{{ $title = printf "%s · %s" .Title $author }}{{ end }}
+  {{- $title := printf "%s · %s" $author $role -}}
+  {{- if not (or .IsHome (eq .Type "cv")) }}{{ $title = printf "%s · %s" .Title $author }}{{ end }}
 
   <title>{{ $title }}</title>
   <meta name="description" content="{{ $desc }}">
@@ -24,6 +27,12 @@
   <meta name="twitter:card" content="summary">
 
   <link rel="canonical" href="{{ .Permalink }}">
+  {{- if or .IsHome (eq .Type "projects") (eq .Type "cv") }}
+  {{- $alt := partial "lang.html" . | absURL }}
+  <link rel="alternate" hreflang="{{ if eq $lang "zh" }}zh-CN{{ else }}en{{ end }}" href="{{ .Permalink }}">
+  <link rel="alternate" hreflang="{{ if eq $lang "zh" }}en{{ else }}zh-CN{{ end }}" href="{{ $alt }}">
+  {{- end }}
+  <meta property="og:locale" content="{{ if eq $lang "zh" }}zh_CN{{ else }}en_US{{ end }}">
 
   <!-- Styles: system fonts only, so the page loads fast everywhere (including mainland China) -->
   <link rel="stylesheet" href="{{ "public/font-awesome/css/font-awesome.min.css" | relURL }}">
@@ -37,7 +46,7 @@
 
   {{- if .IsHome }}
   {{- $cv := .Site.Data.cv }}
-  {{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" $cv.profile.name "alternateName" $cv.profile.name_zh "jobTitle" $cv.profile.title "worksFor" (dict "@type" "Organization" "name" "QCraft") "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "Beihang University") "email" (printf "mailto:%s" $cv.profile.email) "url" .Site.BaseURL "image" ("public/img/avatar.jpg" | absURL) "sameAs" (slice (printf "https://github.com/%s" $cv.profile.github)) }}
+  {{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" $cv.profile.name "alternateName" $cv.profile.name_alt "jobTitle" $cv.profile.title "worksFor" (dict "@type" "Organization" "name" "QCraft") "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "Beihang University") "email" (printf "mailto:%s" $cv.profile.email) "url" .Site.BaseURL "image" ("public/img/avatar.jpg" | absURL) "sameAs" (slice (printf "https://github.com/%s" $cv.profile.github)) }}
   <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
   {{- end }}
 </head>

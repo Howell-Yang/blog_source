@@ -11,7 +11,7 @@ profile:
   email: howellyang@buaa.edu.cn
   github: Howell-Yang
   # 可选：把 PDF 放到 static/files/ 并填写路径，例如 /files/YangHao_CV_zh.pdf
-  cv_pdf: ""
+  cv_pdf: /files/YangHao_CV_zh.pdf
   bio:
     # 中文段落请写在一行内：YAML 折行会在汉字之间插入空格。
     - "我专注于把深度学习模型从训练落地到量产车规芯片。在[轻舟智航](https://www.qcraft.ai/)，我负责约 19 个量产行车、泊车模型的量化与端侧部署，覆盖 BEV 感知、Occupancy、矢量地图、时序跟踪和端到端规划，运行平台包括地平线 J5/J6M、英伟达 Orin、高通和爱芯。"

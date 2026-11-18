@@ -4,14 +4,14 @@
 
 profile:
   name: Yang Hao
-  name_zh: 杨豪
+  name_alt: 杨豪
   title: Model Quantization & Deployment Lead
   affiliation: QCraft (轻舟智航) · Perception ML-Infra
   avatar: /public/img/avatar.jpg
   email: howellyang@buaa.edu.cn
   github: Howell-Yang
   # Optional: put a PDF at static/files/ and set the path, e.g. /files/YangHao_CV.pdf
-  cv_pdf: ""
+  cv_pdf: /files/YangHao_CV.pdf
   bio:
     - >-
       I take deep-learning models from training to production automotive chips.
@@ -48,7 +48,7 @@ news:
 
 experience:
   - org: QCraft
-    org_zh: 轻舟智航
+    org_alt: 轻舟智航
     url: https://www.qcraft.ai/
     role: Model Quantization & Deployment Lead, Perception ML-Infra
     dates: Oct 2022 – present
@@ -84,7 +84,7 @@ experience:
           - "Designed and reviewed a ~235M-parameter SparseDrive-style end-to-end driving prototype (10 cameras, LiDAR and SD map feeding detection, map, occupancy, traffic-light and planning heads)."
 
   - org: Tencent Maps
-    org_zh: 腾讯地图
+    org_alt: 腾讯地图
     url: https://map.qq.com/
     role: Algorithm Engineer, Map Platform (CSIG)
     dates: Jul 2021 – Oct 2022
@@ -97,7 +97,7 @@ experience:
           - "Optimized vehicle-side map-building and data-collection pipelines and ARM on-board CPU usage."
 
   - org: Yitu Technology
-    org_zh: 依图科技
+    org_alt: 依图科技
     url: https://www.yitutech.com/
     role: Algorithm Engineer
     dates: Apr 2019 – Jul 2021
@@ -184,10 +184,10 @@ skills:
 
 education:
   - school: Beihang University (BUAA)
-    school_zh: 北京航空航天大学
+    school_alt: 北京航空航天大学
     degree: M.Eng., Pattern Recognition
     dates: Sep 2016 – Jan 2019
   - school: Beihang University (BUAA)
-    school_zh: 北京航空航天大学
+    school_alt: 北京航空航天大学
     degree: B.Eng., Automation
     dates: Sep 2012 – Jul 2016

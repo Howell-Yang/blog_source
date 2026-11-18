@@ -18,11 +18,22 @@ Almost everything on the homepage comes from one file: **`data/cv.yaml`**.
 
 Text fields accept Markdown (`**bold**`, `[link](https://...)`). To add a PDF CV, put it in `static/files/` and set `profile.cv_pdf`, for example `/files/YangHao_CV.pdf`.
 
-The Chinese profile lives in `content/fixed/about.md` (served at `/about/`). Blog posts are in `content/post/`.
+## Chinese edition (/zh/)
+
+The site is bilingual. The Chinese CV at `/zh/` uses the same template as the English homepage, with its content in **`data/cv_zh.yaml`** (same structure as `data/cv.yaml`; keep the two in sync). Chinese project pages live in `content/zh/projects/`, one per English page with the **same file name**, so the 中文 / EN switch in the header lands on the matching page.
+
+- Interface labels for both languages: `data/strings.yaml`
+- A page is Chinese when its front matter has `ui_lang: zh` (Chinese project pages also need `type: projects`)
+- The old `/about/` page now redirects to `/zh/`; `content/fixed/about.md` is kept as a draft and can be deleted
+- In `cv_zh.yaml`, write each Chinese paragraph on one line: YAML line folding inserts spaces between Chinese characters
+
+Blog posts are in `content/post/` and are not translated.
 
 ## Layout and style
 
-- `layouts/index.html`: the CV homepage
+- `layouts/index.html` (English) and `layouts/cv/list.html` (Chinese): both render `layouts/partials/cv_body.html`
+- `layouts/projects/`: project detail pages and the projects index
+- `layouts/shortcodes/`: `pipeline` (flow diagrams) and `callout` (highlighted notes) for project pages
 - `layouts/partials/head.html`, `site_header.html`, `default_head.html`, `default_foot.html`: shared page frame
 - `layouts/post/single.html`: blog post page
 - `static/css/site.css`: all styles, including a mobile layout and a print layout (printing the homepage gives a clean paper CV)

@@ -1,17 +1,20 @@
+{{- $lang := .Params.ui_lang | default "en" -}}
+{{- $t := index .Site.Data.strings $lang -}}
+{{- $isCV := or .IsHome (eq .Type "cv") -}}
 <header class="site-header">
   <div class="container header-inner">
-    <a class="site-name" href="{{ "/" | relURL }}">{{ .Site.Params.Author }}<span class="site-name-zh">{{ .Site.Params.AuthorZh }}</span></a>
+    <a class="site-name" href="{{ $t.home_path | relURL }}">{{ if eq $lang "zh" }}{{ .Site.Params.AuthorZh }}<span class="site-name-zh">{{ .Site.Params.Author }}</span>{{ else }}{{ .Site.Params.Author }}<span class="site-name-zh">{{ .Site.Params.AuthorZh }}</span>{{ end }}</a>
     <nav class="site-nav" aria-label="Main">
-      {{- if .IsHome }}
-      <a class="nav-anchor" href="#experience">Experience</a>
-      <a class="nav-anchor" href="#projects">Projects</a>
-      <a class="nav-anchor" href="#skills">Skills</a>
+      {{- if $isCV }}
+      <a class="nav-anchor" href="#experience">{{ $t.nav_experience }}</a>
+      <a class="nav-anchor" href="#projects">{{ $t.nav_projects }}</a>
+      <a class="nav-anchor" href="#skills">{{ $t.nav_skills }}</a>
       {{- else }}
-      <a href="{{ "/" | relURL }}">CV</a>
-      <a href="{{ "projects/" | relURL }}">Projects</a>
+      <a href="{{ $t.home_path | relURL }}">{{ $t.nav_cv }}</a>
+      <a href="{{ $t.projects_path | relURL }}">{{ $t.nav_projects }}</a>
       {{- end }}
-      <a href="{{ "archives/" | relURL }}">Blog</a>
-      <a href="{{ "about/" | relURL }}" lang="zh">中文</a>
+      <a href="{{ "archives/" | relURL }}">{{ $t.nav_blog }}</a>
+      <a class="lang-switch" href="{{ partial "lang.html" . | relURL }}" lang="{{ $t.switch_lang }}" title="{{ $t.switch_title }}">{{ $t.switch_label }}</a>
     </nav>
   </div>
 </header>

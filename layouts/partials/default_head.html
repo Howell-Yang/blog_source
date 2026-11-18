@@ -1,7 +1,9 @@
+{{- $lang := .Params.ui_lang | default "en" -}}
+{{- $t := index .Site.Data.strings $lang -}}
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<html lang="{{ $t.html_lang }}">
 {{ partial "head.html" . }}
-<body class="{{ if .IsHome }}is-home{{ else }}is-page{{ end }}">
-<a class="skip-link" href="#main">Skip to content</a>
+<body class="{{ if or .IsHome (eq .Type "cv") }}is-home{{ else }}is-page{{ end }} lang-{{ $lang }}">
+<a class="skip-link" href="#main">{{ $t.skip }}</a>
 {{ partial "site_header.html" . }}
 <main id="main" class="container">

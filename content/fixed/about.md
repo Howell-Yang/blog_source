@@ -4,6 +4,9 @@ title: 中文简介
 url: /about/
 weight: "1"
 type: fixed
+# Replaced by the full Chinese CV at /zh/ (which redirects /about/ there).
+# Kept as a draft so it is not built; delete it if you no longer need it.
+draft: true
 description: 杨豪，轻舟智航模型量化与部署负责人，专注自动驾驶模型的量化、部署与 ML 基础设施。
 ---
 
